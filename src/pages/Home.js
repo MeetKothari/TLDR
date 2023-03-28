@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import WidgetPopup from "./WidgetPopup";
 import { ReactComponent as AddIcon } from "../components/add.svg";
 import { ReactComponent as DarkIcon } from "../components/dark.svg";
 import { ReactComponent as LightIcon } from "../components/light.svg";
@@ -39,15 +40,15 @@ export default function (props) {
     <div>
       <Navbar>
         <h1 className="logo">TLDR</h1>
-        <NavItem icon={<AddIcon />} onClick={handleAddClick}>
-          {addMenuOpen && (
+        <AddItem icon={<AddIcon />} onClick={handleAddClick}>
+          {/* {addMenuOpen && (
             <Dropdown>
               <DropdownItem icon={<SportsIcon />} onClick={() => handleAddItem('square')}>Sports</DropdownItem>
               <DropdownItem icon={<TrafficIcon />} onClick={() => handleAddItem('square')}>Traffic</DropdownItem>
               <DropdownItem icon={<WeatherIcon />} onClick={() => handleAddItem('square')}>Weather</DropdownItem>
             </Dropdown>
-          )}
-        </NavItem>
+          )} */}
+        </AddItem>
         <NavItem
           icon={isDarkMode ? <LightIcon /> : <DarkIcon />}
           onClick={handleToggleTheme}
@@ -59,6 +60,7 @@ export default function (props) {
           </Dropdown>
         </NavItem>
       </Navbar>
+      <div className="widget-container"></div>
       <Home items={items} />
     </div>
   );
@@ -80,8 +82,42 @@ function Navbar(props) {
   );
 }
 
+function AddItem(props) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <li className="nav-item">
+      <a
+        href="#"
+        className="icon-button"
+        onClick={() => {
+          setOpen(!open);
+          props.onClick && props.onClick();
+        }}
+      >
+        {props.icon}
+      </a>
+
+      { open && (
+        <div className="popup">
+          <WidgetPopup />
+        </div>
+      ) }
+    </li>
+  );
+}
+
 function NavItem(props) {
   const [open, setOpen] = useState(false);
+
+  // useEffect(() => {
+  //   let handler = (e)=> {
+  //     if (e.target) {
+  //       setOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handler);
+  // });
 
   return (
     <li className="nav-item">
@@ -106,6 +142,8 @@ function Dropdown(props) {
 }
 
 function DropdownItem(props) {
+  const [open, setOpen] = useState(false);
+
   return (
     <a href="#" className="menu-item" onClick={props.onClick}>
       <span className="icon-button">{props.icon}</span>

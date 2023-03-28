@@ -110,3 +110,43 @@ a {
   display: flex;
   align-items: center;
 }
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  padding: 2em;
+  background-color: rgb(68, 72, 76);
+  color: #fff;
+}
+
+.widget-container{
+  margin: 2em;
+  display: flex;
+
+}
+
+.widget{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2em;
+}
+
+.widget-square{
+  height: 200px;
+  width: 200px;
+}
+
+.widget-rectangle{
+  width: 400px;
+  height: 200px;
+}
+
+.widget-circle{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
