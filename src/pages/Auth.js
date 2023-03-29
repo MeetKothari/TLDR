@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ReactSVG } from 'react-svg';
 
 import "../App.css";
@@ -7,20 +7,26 @@ import mySVG from '../components/coffee.svg';
 
 export default function AuthForm(props) {
   const [authMode, setAuthMode] = useState("signin");
+  const navigate = useNavigate();
 
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
 
+  const handleGuestLogin = (e) => {
+    e.preventDefault();
+    navigate('/home');
+  }
+
   return (
     <div className="Auth-container">
-     <div className="wrapper">
-      <div className="Auth-intro">
-        <h1 className="Auth-intro-words"> Traffic. Weather. Sports. </h1>
-        <h1 className="Auth-intro-words"> Your morning- simplified. </h1>
+      <div className="wrapper">
+        <div className="Auth-intro">
+          <h1 className="Auth-intro-words"> Traffic. Weather. Sports. </h1>
+          <h1 className="Auth-intro-words"> Your morning- simplified. </h1>
         </div>
         <img src={mySVG} className="coffee" alt="My SVG" />
-        </div>
+      </div>
       <div className="Auth-content">
         <h1 className="Auth-title">Welcome to TL;DR. </h1>
         <h2 className="Auth-subtitle">Please sign in or create an account.</h2>
@@ -54,9 +60,24 @@ export default function AuthForm(props) {
               />
             </div>
           )}
-          <button type="submit" className="Auth-button">
-            {authMode === "signin" ? "Sign In" : "Sign Up"}
-          </button>
+          {authMode === "signin" ? (
+            <>
+              <button type="submit" className="Auth-button">
+                Sign In
+              </button>
+              <button
+                type="button"
+                className="Auth-button"
+                onClick={handleGuestLogin}
+              >
+                Login as guest
+              </button>
+            </>
+          ) : (
+            <button type="submit" className="Auth-button">
+              Sign Up
+            </button>
+          )}
           <div className="Auth-switch">
             {authMode === "signin" ? (
               <>
