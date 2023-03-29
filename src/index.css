@@ -113,13 +113,21 @@ a {
 
 .popup {
   position: absolute;
+  min-height: 300px;
+  min-width: 200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   z-index: 999;
   padding: 2em;
-  background-color: rgb(68, 72, 76);
+  border-radius: var(--border-radius);
+  background-color: #394048;
   color: #fff;
+}
+
+#add-button {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .widget-container{

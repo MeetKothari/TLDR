@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import WidgetPopup from "./WidgetPopup";
+
+import { Link } from "react-router-dom";
+
+
 import { ReactComponent as AddIcon } from "../components/add.svg";
 import { ReactComponent as DarkIcon } from "../components/dark.svg";
 import { ReactComponent as LightIcon } from "../components/light.svg";
@@ -55,8 +59,10 @@ export default function (props) {
         ></NavItem>
         <NavItem icon={<ProfileIcon />}>
           <Dropdown>
-            <DropdownItem icon={<ProfileIcon />}>Profile</DropdownItem>
+            <DropdownItem icon={<ProfileIcon />}><Link to="/profile">Profile</Link></DropdownItem>
+           <Link to="/settings">
             <DropdownItem icon={<SettingsIcon />}>Settings</DropdownItem>
+            </Link>
           </Dropdown>
         </NavItem>
       </Navbar>
@@ -110,14 +116,14 @@ function AddItem(props) {
 function NavItem(props) {
   const [open, setOpen] = useState(false);
 
-  // useEffect(() => {
-  //   let handler = (e)=> {
-  //     if (e.target) {
-  //       setOpen(false);
-  //     }
-  //   };
-  //   document.addEventListener("mousedown", handler);
-  // });
+  useEffect(() => {
+    let handler = (e)=> {
+      if (e.target) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+  });
 
   return (
     <li className="nav-item">

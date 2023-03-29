@@ -35,16 +35,23 @@ function WidgetPopup() {
   return (
     <>
     <div className="widget-popup">
-      <h2>Select a Widget:</h2>
-      <select value={widgetType} onChange={handleWidgetTypeChange}>
-        <option value="Small">Widget (Square)</option>
-        <option value="Large">Widget (Rectangle)</option>
-      </select>
-      <h2>Choose a Color:</h2>
-      <input type="color" value={widgetColor} onChange={handleWidgetColorChange} />
-      <h2>Enter a Value:</h2>
-      <input type="text" value={widgetValue} onChange={handleWidgetValueChange} />
-      <button onClick={handleWidgetSubmit}>Add Widget</button>
+      <div className="popup-info">
+        <h2>Widget:</h2>
+        <select value={widgetType} onChange={handleWidgetTypeChange}>
+          <option value="Square">Sports</option>
+          <option value="Rectangle">Traffic</option>
+          <option value="Rectangle">Weather</option>
+        </select>
+        <h2>Size:</h2>
+        <select value={widgetType} onChange={handleWidgetTypeChange}>
+          <option value="Square">Small</option>
+          <option value="Rectangle">Large</option>
+        </select>
+        <h2>Color:</h2>
+        <input type="color" value={widgetColor} onChange={handleWidgetColorChange} />
+        <br />
+        <button id="add-button" onClick={handleWidgetSubmit}>Add Widget</button>
+      </div>
     </div>
     
     </>
