@@ -224,6 +224,26 @@ input[type="password"] {
   z-index: 1;
 }
 
+.swings {
+
+  width: 30vw;
+  height: 20vh;
+  margin-top: 750px;
+  margin-left: 1200px;
+  position: absolute;
+  z-index: 1;
+
+}
+
+.reading {
+
+  width: 50vw;
+  height: 50vh;
+  margin-top: -800px;
+  margin-right: 60px;
+
+}
+
 
 
 

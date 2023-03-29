@@ -1,3 +1,5 @@
+/* artwork credit: https://www.opendoodles.com/*/
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactSVG } from 'react-svg';
@@ -5,6 +7,9 @@ import { ReactSVG } from 'react-svg';
 import "../App.css";
 import mySVG from '../components/coffee.svg';
 import mySVG1 from '../components/laying.svg';
+import mySVG2 from '../components/swinging.svg';
+import mySVG3 from '../components/ReadingSideDoodle.svg'
+
 
 export default function AuthForm(props) {
   const [authMode, setAuthMode] = useState("signin");
@@ -24,10 +29,12 @@ export default function AuthForm(props) {
       <div className="wrapper">
         <img src={mySVG1} className="woman" alt="My SVG1" />
         <div className="Auth-intro">
-          <h1 className="Auth-intro-words"> Traffic. Weather. Sports. </h1>
-          <h1 className="Auth-intro-words"> Your morning- simplified. </h1>
+          {/* <h1 className="Auth-intro-words"> Traffic. Weather. Sports. </h1>
+          <h1 className="Auth-intro-words"> Your morning- simplified. </h1> */}
         </div>
         <img src={mySVG} className="coffee" alt="My SVG" />
+        <img src={mySVG2} className="swings" alt="My SVG1" />
+        <img src={mySVG3} className="reading" alt="My SVG1" />
       </div>
       <div className="Auth-content">
         <h1 className="Auth-title">Welcome to TL;DR. </h1>
