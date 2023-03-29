@@ -336,6 +336,68 @@ input[type="password"] {
   margin-bottom: 10px;
 }
 
+/* PASSWORD STUFF */
+/* FORGOT PASSWORD PAGE */
+body {
+  background-color: #f8f8f8;
+
+}
+.Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 95vw;
+  background-color: #f8f8f8;
+}
+
+
+.Auth-form-content {
+  margin-bottom: 16px;
+}
+
+.Auth-form-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.Auth-form-subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+.form-control:not(:disabled):not(.disabled) {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.messy{
+  width: 50vw;
+  height: 50vh;
+}
+
+
+
 
 /* LOGO STUFF */
 

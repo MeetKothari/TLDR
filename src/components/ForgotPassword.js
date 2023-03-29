@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import "../App.css";
+import mySVG from './MessyDoodle.svg';
+
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [isCodeSent, setIsCodeSent] = useState(false);
@@ -12,22 +15,22 @@ export default function ForgotPassword() {
 
   return (
     <div className="Auth-form-container">
-      <form className="Auth-form">
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Forgot your password?</h3>
-          <h1 className="Auth-form-subtitle"> You should be more careful...kidding!</h1>
+      <img src={mySVG} className="messy" alt="My SVG1" />
+      <form className="Auth-container">
+        <div className="Auth-content">
+          <h3 className="Auth-title">Forgot your password?</h3>
           <div className="form-group mt-3">
             <label>Email address</label>
             <input
               type="email"
-              className="form-control mt-1"
+              className="form-group"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary" onClick={handleSendCode}>
+            <button type="submit" className="Auth-button" onClick={handleSendCode}>
               Send Verification Code
             </button>
           </div>
