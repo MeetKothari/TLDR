@@ -4,6 +4,7 @@ import { ReactSVG } from 'react-svg';
 
 import "../App.css";
 import mySVG from '../components/coffee.svg';
+import mySVG1 from '../components/laying.svg';
 
 export default function AuthForm(props) {
   const [authMode, setAuthMode] = useState("signin");
@@ -21,6 +22,7 @@ export default function AuthForm(props) {
   return (
     <div className="Auth-container">
       <div className="wrapper">
+        <img src={mySVG1} className="woman" alt="My SVG1" />
         <div className="Auth-intro">
           <h1 className="Auth-intro-words"> Traffic. Weather. Sports. </h1>
           <h1 className="Auth-intro-words"> Your morning- simplified. </h1>

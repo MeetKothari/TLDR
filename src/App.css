@@ -215,6 +215,17 @@ input[type="password"] {
   margin-right: 60px;
 }
 
+.woman {
+  width: 30vw;
+  height: 20vh;
+  margin-top: -720px;
+  margin-left: 1200px;
+  position: absolute;
+  z-index: 1;
+}
+
+
+
 
 /* .btn-primary {
   background: linear-gradient(to right, #f44336, #ff9800);
