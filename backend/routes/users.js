@@ -1,4 +1,6 @@
 const express = require('express')
+
+// function imports
 const User = require('../models/userModel')
 const {
     getUsers,
