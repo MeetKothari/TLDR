@@ -158,3 +158,24 @@ a {
   height: 200px;
   border-radius: 50%;
 }
+
+
+/* Light mode styles */
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+.logo {
+  color: #fff;
+}
+
+/* Dark mode styles */
+body.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark .logo {
+  color: #fff;
+}

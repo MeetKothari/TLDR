@@ -1,9 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import WidgetPopup from "./WidgetPopup";
-
 import { Link } from "react-router-dom";
-
-
 import { ReactComponent as AddIcon } from "../components/add.svg";
 import { ReactComponent as DarkIcon } from "../components/dark.svg";
 import { ReactComponent as LightIcon } from "../components/light.svg";
@@ -13,21 +10,28 @@ import { ReactComponent as SportsIcon } from "../components/sports.svg";
 import { ReactComponent as TrafficIcon } from "../components/traffic.svg";
 import { ReactComponent as WeatherIcon } from "../components/weather.svg";
 
-export default function (props) {
+export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Set the initial theme based on whether "dark-mode" is already set in localStorage
   useEffect(() => {
     const isDarkModeSet = localStorage.getItem("dark-mode");
-    setIsDarkMode(!!isDarkModeSet);
+    setIsDarkMode(isDarkModeSet === "true");
   }, []);
 
-  // Set the theme when the mode is toggled
   const handleToggleTheme = () => {
     const newIsDarkMode = !isDarkMode;
     setIsDarkMode(newIsDarkMode);
-    localStorage.setItem("dark-mode", newIsDarkMode);
+    localStorage.setItem("dark-mode", newIsDarkMode.toString());
   };
+
+  useEffect(() => {
+    const body = document.body;
+    if (isDarkMode) {
+      body.classList.add("dark");
+    } else {
+      body.classList.remove("dark");
+    }
+  }, [isDarkMode]);
 
   const [addMenuOpen, setAddMenuOpen] = useState(false);
   const [items, setItems] = useState([]);
@@ -44,24 +48,18 @@ export default function (props) {
     <div>
       <Navbar>
         <h1 className="logo">TLDR</h1>
-        <AddItem icon={<AddIcon />} onClick={handleAddClick}>
-          {/* {addMenuOpen && (
-            <Dropdown>
-              <DropdownItem icon={<SportsIcon />} onClick={() => handleAddItem('square')}>Sports</DropdownItem>
-              <DropdownItem icon={<TrafficIcon />} onClick={() => handleAddItem('square')}>Traffic</DropdownItem>
-              <DropdownItem icon={<WeatherIcon />} onClick={() => handleAddItem('square')}>Weather</DropdownItem>
-            </Dropdown>
-          )} */}
-        </AddItem>
+        <AddItem icon={<AddIcon />} onClick={handleAddClick} />
         <NavItem
           icon={isDarkMode ? <LightIcon /> : <DarkIcon />}
           onClick={handleToggleTheme}
-        ></NavItem>
+        />
         <NavItem icon={<ProfileIcon />}>
           <Dropdown>
-            <DropdownItem icon={<ProfileIcon />}><Link to="/profile">Profile</Link></DropdownItem>
-           <Link to="/settings">
-            <DropdownItem icon={<SettingsIcon />}>Settings</DropdownItem>
+            <DropdownItem icon={<ProfileIcon />}>
+              <Link to="/profile">Profile</Link>
+            </DropdownItem>
+            <Link to="/settings">
+              <DropdownItem icon={<SettingsIcon />}>Settings</DropdownItem>
             </Link>
           </Dropdown>
         </NavItem>
@@ -104,11 +102,11 @@ function AddItem(props) {
         {props.icon}
       </a>
 
-      { open && (
+      {open && (
         <div className="popup">
           <WidgetPopup />
         </div>
-      ) }
+      )}
     </li>
   );
 }
