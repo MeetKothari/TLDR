@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WidgetPopup from "./WidgetPopup";
-import CalendarWidget from '../components/CalendarWidget';
+import CalendarWidget from '../widgets/calendar/CalendarWidget';
+import WeatherWidget from "../widgets/weather/WeatherWidget";
 import Clock from '../components/Clock';
 
 import "../App.css";
@@ -152,7 +153,7 @@ function AddItem(props) {
 
       {open && (
         <div className="popup">
-          <WidgetPopup />
+          <WeatherWidget />
         </div>
       )}
     </li>
@@ -186,20 +187,5 @@ function NavItem(props) {
 
       {open && props.children}
     </li>
-  );
-}
-
-function Dropdown(props) {
-  return <div className="dropdown">{props.children}</div>;
-}
-
-function DropdownItem(props) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <a href="#" className="menu-item" onClick={props.onClick}>
-      <span className="icon-button">{props.icon}</span>
-      {props.children}
-    </a>
   );
 }
