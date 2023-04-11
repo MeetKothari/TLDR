@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WidgetPopup from "./WidgetPopup";
 import CalendarWidget from '../components/CalendarWidget';
+import Clock from '../components/Clock';
 
 import "../App.css";
 
@@ -13,11 +14,18 @@ import { ReactComponent as SettingsIcon } from "../components/settings.svg";
 import { ReactComponent as SportsIcon } from "../components/sports.svg";
 import { ReactComponent as TrafficIcon } from "../components/traffic.svg";
 import { ReactComponent as WeatherIcon } from "../components/weather.svg";
+import Draggable from "react-draggable";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState('')
   const navigate = useNavigate();
+
+  const [clockType, setClockType] = useState("digital");
+
+  const handleClockTypeChange = (event) => {
+    setClockType(event.target.value);
+  };
 
   useEffect(() => {
     const isDarkModeSet = localStorage.getItem("dark-mode");
@@ -72,6 +80,7 @@ export default function App() {
     <div>
       <Navbar>
         <h1 className="logo">TLDR</h1>
+        <Clock /> {/* insert clock component */}
         <AddItem icon={<AddIcon />} onClick={handleAddClick} />
         {/* <NavItem
           icon={isDarkMode ? <LightIcon /> : <DarkIcon />}
@@ -99,8 +108,11 @@ export default function App() {
           handleLogout
         } > Log Out </button>
       </Navbar>
-      <div className="widget-container"></div>
-      <CalendarWidget selectedDate={new Date()} onDateChange={() => {}} /> {/* use CalendarWidget component */}
+      <Draggable grid={[300, 300]}>
+        <div className = "widget-container">
+          <CalendarWidget selectedDate={new Date()} onDateChange={() => {}} /> {/* use CalendarWidget component */}
+        </div>
+      </Draggable>
       <Home items={items} />
     </div>
   );
