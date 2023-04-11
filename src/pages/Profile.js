@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
-function Profile() {}
+function Profile() {
+    return("Hello world")
+}
 
 export default Profile;

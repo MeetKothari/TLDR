@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WidgetPopup from "./WidgetPopup";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ReactComponent as AddIcon } from "../components/add.svg";
 import { ReactComponent as DarkIcon } from "../components/dark.svg";
 import { ReactComponent as LightIcon } from "../components/light.svg";
@@ -12,6 +12,7 @@ import { ReactComponent as WeatherIcon } from "../components/weather.svg";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const isDarkModeSet = localStorage.getItem("dark-mode");
@@ -44,6 +45,13 @@ export default function App() {
     setItems([...items, itemName]);
   };
 
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
+  const handleSettingsClick = () => {
+    navigate("/settings");
+  };
+
   return (
     <div>
       <Navbar>
@@ -53,15 +61,21 @@ export default function App() {
           icon={isDarkMode ? <LightIcon /> : <DarkIcon />}
           onClick={handleToggleTheme}
         />
-        <NavItem icon={<ProfileIcon />}>
+        {/* <NavItem icon={<ProfileIcon />}>
           <Dropdown>
             <DropdownItem icon={<ProfileIcon />}>
               <Link to="/profile">Profile</Link>
-            </DropdownItem>
-            <Link to="/settings">
-              <DropdownItem icon={<SettingsIcon />}>Settings</DropdownItem>
-            </Link>
-          </Dropdown>
+              </DropdownItem>
+              <DropdownItem icon={<SettingsIcon />}>
+                <Link to="/settings">Settings</Link>
+                </DropdownItem>
+                </Dropdown>
+        </NavItem> */}
+        <NavItem icon={<ProfileIcon />} onClick={handleProfileClick}>
+          Profile
+        </NavItem>
+        <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick}>
+          Settings
         </NavItem>
       </Navbar>
       <div className="widget-container"></div>

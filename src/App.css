@@ -425,6 +425,10 @@ label {
 
 /* SETTINGS */
 
+.settings-content{
+  margin-right: 800px;
+}
+
 .settings-container {
   width: 100%;
   max-width: 600px;
@@ -438,6 +442,10 @@ label {
   font-size: 36px;
   text-align: center;
   margin-bottom: 40px;
+}
+
+.settings-flair{
+  text-decoration:underline;
 }
 
 .settings-form label {
@@ -472,4 +480,14 @@ label {
 
 .settings-btn:hover {
   background-color: #3e8e41;
+}
+
+.readingsit{
+
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  margin-top: 150px;
+  margin-left: 800px;
+
 }
