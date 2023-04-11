@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import WidgetPopup from "./WidgetPopup";
+import CalendarWidget from '../components/CalendarWidget';
+
+import "../App.css";
+
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ReactComponent as AddIcon } from "../components/add.svg";
 import { ReactComponent as DarkIcon } from "../components/dark.svg";
@@ -96,6 +100,7 @@ export default function App() {
         } > Log Out </button>
       </Navbar>
       <div className="widget-container"></div>
+      <CalendarWidget selectedDate={new Date()} onDateChange={() => {}} /> {/* use CalendarWidget component */}
       <Home items={items} />
     </div>
   );

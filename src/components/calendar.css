@@ -1,0 +1,40 @@
+.react-calendar {
+  border: 5px solid black;
+  font-size: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-left: 40px; /* This will center the calendar */
+}
+
+
+.react-calendar__navigation button {
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #f5f5f5;
+}
+
+.react-calendar__navigation button:active,
+.react-calendar__navigation button.react-calendar__navigation__label__button--active {
+  background-color: #eee;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* TILE STUFF */
+
+.react-calendar__tile {
+  font-weight: bold;
+}
+.react-calendar__tile--active {
+  background-color: #007bff;
+  color: #fff;
+}

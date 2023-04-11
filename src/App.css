@@ -732,3 +732,51 @@ input[type="password"] {
   min-width: 40vw;
   margin-bottom: 20px;
 }
+
+/* CALENDAR */
+
+.CalendarWidget {
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+}
+
+.CalendarWidget .DayPicker-Day--selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.CalendarWidget .DayPicker-Month {
+  margin: 0;
+}
+
+.CalendarWidget .DayPicker-Caption {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.CalendarWidget .DayPicker-Weekday {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #007bff;
+}
+
+.CalendarWidget .DayPicker-NavButton--prev,
+.CalendarWidget .DayPicker-NavButton--next {
+  color: #007bff;
+}
+
+.CalendarWidget .DayPicker-NavButton--prev:hover,
+.CalendarWidget .DayPicker-NavButton--next:hover {
+  background-color: #f8f8f8;
+  color: #007bff;
+}
+
+.CalendarWidget .DayPicker-NavButton--prev:active,
+.CalendarWidget .DayPicker-NavButton--next:active {
+  background-color: #007bff;
+  color: #fff;
+}

@@ -6,6 +6,7 @@ function WidgetPopup() {
   const [widgetType, setWidgetType] = useState('Square');
   const [widgetColor, setWidgetColor] = useState('black');
   const [widgetValue, setWidgetValue] = useState('');
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleWidgetTypeChange = (event) => {
     setWidgetType(event.target.value);
@@ -17,6 +18,10 @@ function WidgetPopup() {
 
   const handleWidgetValueChange = (event) => {
     setWidgetValue(event.target.value);
+  };
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
   };
 
   const handleWidgetSubmit = (event) => {
