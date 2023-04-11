@@ -1,6 +1,6 @@
 /* artwork credit: https://www.opendoodles.com/*/
 
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactSVG } from 'react-svg';
 
@@ -14,6 +14,10 @@ import mySVG3 from '../components/ReadingSideDoodle.svg'
 export default function AuthForm(props) {
   const [authMode, setAuthMode] = useState("signin");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#f8f8f8";
+  }, []);
 
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");

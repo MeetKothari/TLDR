@@ -35,6 +35,11 @@ export default function App() {
     }
   }, [isDarkMode]);
 
+  const handleLogout = () => {
+    // perform logout logic here
+    navigate("/");
+  };
+
   useEffect(() => {
     const themeColor = localStorage.getItem('backgroundColor');
     const body = document.body;
@@ -84,6 +89,11 @@ export default function App() {
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick}>
           Settings
         </NavItem>
+        < button type = "submit"
+        className = "theme-tile"
+        onClick = {
+          handleLogout
+        } > Log Out </button>
       </Navbar>
       <div className="widget-container"></div>
       <Home items={items} />
