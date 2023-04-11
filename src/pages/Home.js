@@ -71,9 +71,9 @@ export default function App() {
                 </DropdownItem>
                 </Dropdown>
         </NavItem> */}
-        <NavItem icon={<ProfileIcon />} onClick={handleProfileClick}>
+        {/* <NavItem icon={<ProfileIcon />} onClick={handleProfileClick}>
           Profile
-        </NavItem>
+        </NavItem> */}
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick}>
           Settings
         </NavItem>

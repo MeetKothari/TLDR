@@ -215,6 +215,17 @@ input[type="password"] {
   margin-right: 60px;
 }
 
+.coffeehome{
+
+  position: absolute;
+
+  width: 10vw;
+  height: 10vh;
+  top: 0;
+  left: 0;
+
+}
+
 .woman {
   width: 30vw;
   height: 20vh;
@@ -406,6 +417,24 @@ label {
   top: 60%;
 }
 
+.bikini{
+  width: 50vw;
+  height: 40vh;
+  position: absolute;
+  right: 60%;
+  bottom: 50%;
+}
+
+.ballet{
+
+  width: 50vw;
+  height: 40vh;
+  position: absolute;
+  left: 40%;
+  bottom: 65%;
+
+}
+
 
 
 
@@ -435,9 +464,9 @@ label {
 
 /* SETTINGS */
 
-.settings-content{
-  margin-right: 800px;
-}
+/* .settings-content{
+  margin-right: 650px;
+} */
 
 .settings-container {
   width: 100%;
@@ -497,7 +526,6 @@ label {
   position: absolute;
   width: 50vw;
   height: 50vh;
-  margin-top: 150px;
-  margin-left: 800px;
+  left: 58%;
 
 }

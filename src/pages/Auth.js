@@ -113,7 +113,7 @@ export default function AuthForm(props) {
             )}
           </div>
           <p className="Auth-forgot-password">
-            Forgot password? <Link to="/forgot-password">Reset here</Link>
+            Forgot password? <Link to="/forgot-password">Reset here!</Link>
           </p>
         </form>
       </div>
