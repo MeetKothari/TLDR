@@ -12,6 +12,7 @@ import { ReactComponent as WeatherIcon } from "../components/weather.svg";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState('')
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,6 +34,12 @@ export default function App() {
       body.classList.remove("dark");
     }
   }, [isDarkMode]);
+
+  useEffect(() => {
+    const themeColor = localStorage.getItem('backgroundColor');
+    const body = document.body;
+      body.style.backgroundColor = themeColor;
+  }, []);
 
   const [addMenuOpen, setAddMenuOpen] = useState(false);
   const [items, setItems] = useState([]);
@@ -57,10 +64,10 @@ export default function App() {
       <Navbar>
         <h1 className="logo">TLDR</h1>
         <AddItem icon={<AddIcon />} onClick={handleAddClick} />
-        <NavItem
+        {/* <NavItem
           icon={isDarkMode ? <LightIcon /> : <DarkIcon />}
           onClick={handleToggleTheme}
-        />
+        /> */}
         {/* <NavItem icon={<ProfileIcon />}>
           <Dropdown>
             <DropdownItem icon={<ProfileIcon />}>

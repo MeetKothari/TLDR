@@ -100,8 +100,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  max-width: 95vw;
+  min-height: 100%;
+  max-width: 100%;
   background-color: #f8f8f8;
 }
 
@@ -357,8 +357,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  max-width: 95vw;
+  min-height: 100%;
+  max-width: 100%;
   background-color: #f8f8f8;
 }
 
@@ -526,6 +526,74 @@ label {
   position: absolute;
   width: 50vw;
   height: 50vh;
-  left: 58%;
+  left: 63%;
 
 }
+
+.theme-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-tile:hover {
+  opacity: 0.8;
+}
+
+.theme-tile.light-mode {
+  border: 2px solid black;
+  color: black;
+}
+
+.theme-tile.dark-mode {
+  background-color: navy;
+  color: white;
+}
+
+.theme-tile.default-mode {
+  background-color: white;
+  color: black;
+}
+
+.theme-tile.blue-mode {
+  background-color: blue;
+  color: white;
+}
+
+.theme-tile.green-mode {
+  background-color: green;
+  color: white;
+}
+
+.theme-tile.pink-mode {
+  background-color: pink;
+  color: white;
+}
+
+.themes-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
