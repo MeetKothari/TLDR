@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css';
 import mySVG from '../components/sitting-reading.svg';
+import { Link, useNavigate } from "react-router-dom";
 
 function Settings() {
   return (
@@ -14,18 +15,20 @@ function Settings() {
                 </div>
             <div className="form-group">
             <h2 className="Auth-subtitle">Personal Information</h2>
-            <div className="form-control">
+            {/* <div className="form-control">
               <label htmlFor="name">Name</label>
               <input type="text" id="name" />
-            </div>
+            </div> */}
             <div className="form-control">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Your current nickname is: </label>
               <input type="email" id="email" />
             </div>
-            <div className="form-control">
-              <label htmlFor="password">Password</label>
-              <input type="password" id="password" />
-            </div>
+             <p className="Auth-forgot-password">
+            Want to change your nickname? <Link to="/change-nickname">Change it!</Link>
+          </p>
+            <p className="Auth-forgot-password">
+            Forgot password? <Link to="/forgot-password">Reset here</Link>
+          </p>
           </div>
           <div className="form-group">
             <h2 className="Auth-subtitle">Notifications</h2>

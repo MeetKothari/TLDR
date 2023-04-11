@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import ForgotPassword from './components/ForgotPassword'; // import the new component
+import ChangeNickname from './components/ChangeNickname'; // import change
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/forgot-password" element={<ForgotPassword />} /> {/* add the new route */}
+        <Route path="/change-nickname" element={<ChangeNickname />} /> {/* add the new route */}
       </Routes>
     </BrowserRouter>
   )

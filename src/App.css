@@ -394,6 +394,16 @@ label {
 .messy{
   width: 50vw;
   height: 50vh;
+  position: absolute;
+  left: 60%;
+}
+
+.heart {
+  width: 50vw;
+  height: 50vh;
+  position: absolute;
+  right: 60%;
+  top: 60%;
 }
 
 
