@@ -37,11 +37,6 @@ function Settings() {
 
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-      // perform logout logic here
-      navigate("/");
-  };
-
   return (
     <div className="Suth-container settings">
       <a href="/home">
@@ -92,7 +87,6 @@ function Settings() {
                 </div>
               ))}
             </div>
-            <button type="submit" className="Suth-button" onClick={handleLogout}> Log Out </button>
           </div>
         </div>
       </div>

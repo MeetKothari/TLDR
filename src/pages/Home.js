@@ -15,6 +15,7 @@ import { ReactComponent as SettingsIcon } from "../components/settings.svg";
 import { ReactComponent as SportsIcon } from "../components/sports.svg";
 import { ReactComponent as TrafficIcon } from "../components/traffic.svg";
 import { ReactComponent as WeatherIcon } from "../components/weather.svg";
+import { ReactComponent as LogoutIcon } from "../components/logout.svg";
 import Draggable from "react-draggable";
 
 export default function App() {
@@ -73,6 +74,7 @@ export default function App() {
   const handleProfileClick = () => {
     navigate("/profile");
   };
+
   const handleSettingsClick = () => {
     navigate("/settings");
   };
@@ -83,31 +85,8 @@ export default function App() {
         <h1 className="logo">TLDR</h1>
         <Clock /> {/* insert clock component */}
         <AddItem icon={<AddIcon />} onClick={handleAddClick} />
-        {/* <NavItem
-          icon={isDarkMode ? <LightIcon /> : <DarkIcon />}
-          onClick={handleToggleTheme}
-        /> */}
-        {/* <NavItem icon={<ProfileIcon />}>
-          <Dropdown>
-            <DropdownItem icon={<ProfileIcon />}>
-              <Link to="/profile">Profile</Link>
-              </DropdownItem>
-              <DropdownItem icon={<SettingsIcon />}>
-                <Link to="/settings">Settings</Link>
-                </DropdownItem>
-                </Dropdown>
-        </NavItem> */}
-        {/* <NavItem icon={<ProfileIcon />} onClick={handleProfileClick}>
-          Profile
-        </NavItem> */}
-        <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick}>
-          Settings
-        </NavItem>
-        < button type = "submit"
-        className = "theme-tile"
-        onClick = {
-          handleLogout
-        } > Log Out </button>
+        <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
+        <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
       </Navbar>
       <Draggable grid={[300, 300]}>
         <div className = "widget-container">
