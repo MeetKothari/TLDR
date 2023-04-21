@@ -3,6 +3,7 @@ import WidgetPopup from "./WidgetPopup";
 import CalendarWidget from '../widgets/calendar/CalendarWidget';
 import WeatherWidget from "../widgets/weather/WeatherWidget";
 import Clock from '../components/Clock';
+import Todo from '../widgets/todo/todo'
 
 import "../App.css";
 
@@ -16,6 +17,7 @@ import { ReactComponent as SportsIcon } from "../components/sports.svg";
 import { ReactComponent as TrafficIcon } from "../components/traffic.svg";
 import { ReactComponent as WeatherIcon } from "../components/weather.svg";
 import { ReactComponent as LogoutIcon } from "../components/logout.svg";
+import { ReactComponent as CloseIcon } from "../components/close.svg";
 import Draggable from "react-draggable";
 
 export default function App() {
@@ -78,12 +80,21 @@ export default function App() {
   const handleSettingsClick = () => {
     navigate("/settings");
   };
+  
+  const handleDeleteWidgets = () => {
+  const widgetsContainer = document.querySelector(".widgets-container");
+  widgetsContainer.innerHTML = '';
+  setItems([]);
+};
+
+
 
   return (
     <div>
       <Navbar>
         <h1 className="logo">TLDR</h1>
         <Clock /> {/* insert clock component */}
+        <NavItem icon={<CloseIcon />} onClick={handleDeleteWidgets} />
         <AddItem icon={<AddIcon />} onClick={handleAddClick} />
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
         <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
@@ -116,6 +127,29 @@ function Navbar(props) {
 
 function AddItem(props) {
   const [open, setOpen] = useState(false);
+  const [widgets, setWidgets] = useState([]);
+
+  const handleWeatherAdd = () => {
+    setWidgets([
+      ...widgets,
+      <Draggable key={widgets.length} grid={[300, 300]}>
+        <WeatherWidget />
+      </Draggable>
+    ]);
+  };
+
+  const handleTODOAdd = () => {
+    setWidgets([
+      ...widgets,
+      <Draggable key={widgets.length} grid={[300, 300]}>
+        <Todo />
+      </Draggable>
+    ]);
+  };
+
+  const handlePopupClose = () => {
+    setOpen(false);
+  };
 
   return (
     <li className="nav-item">
@@ -123,7 +157,7 @@ function AddItem(props) {
         href="#"
         className="icon-button"
         onClick={() => {
-          setOpen(!open);
+          setOpen(true);
           props.onClick && props.onClick();
         }}
       >
@@ -132,12 +166,34 @@ function AddItem(props) {
 
       {open && (
         <div className="popup">
-          <WeatherWidget />
+          <div className="popup-container">
+            <button className="close-button" onClick={handlePopupClose}>
+              Close
+            </button>
+            <button className="Auth-button" onClick={handleWeatherAdd}>
+              Add Weather Widget
+            </button>
+            <button className="Auth-button" onClick={handleTODOAdd}>
+              Add TODO Widget
+            </button>
+          </div>
         </div>
       )}
+
+      <div className="widgets-popup-container">
+        <div className="widgets-container">
+          {widgets}
+        </div>
+      </div>
     </li>
   );
 }
+
+
+
+
+
+
 
 function NavItem(props) {
   const [open, setOpen] = useState(false);
