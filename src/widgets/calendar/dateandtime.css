@@ -35,6 +35,34 @@
   margin-left: 40px; /* This will center the calendar */
 }
 
+.react-calendar__viewContainer {
+  margin-left: 10px;
+  max-width: 280px;
+}
+
+.react-calendar__century-view {
+  margin-top: 20px;
+}
+
+.react-calendar__decade-view {
+  margin-top: 20px;
+}
+
+.react-calendar__year-view {
+  margin-top: 20px;
+}
+
+.react-calendar__century-view__decades__decade {
+  max-height: 50px;
+}
+
+.react-calendar__decade-view__years__year {
+  max-height: 50px;
+}
+
+.react-calendar__year-view__months__month {
+  max-height: 50px;
+}
 
 .react-calendar__navigation button {
   background-color: #fff;
@@ -68,4 +96,9 @@
 .react-calendar__tile--active {
   background-color: #007bff;
   color: #fff;
+}
+
+.react-calendar__navigation {
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
