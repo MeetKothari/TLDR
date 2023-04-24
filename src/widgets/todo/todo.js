@@ -33,8 +33,11 @@ const TodoList = ({ todos, onCheck }) => {
   };
 
   return (
-    <Draggable handle={isDragging ? null : ".todo-list"} onStart={onStart} onStop={onStop}>
+    <Draggable handle={isDragging ? null : ".todo-list"} onStart={onStart} onStop={onStop} defaultPosition={{x: -1050, y: 500}}>
+      
+      
       <div className={`todo-list ${isDragging ? "dragging" : ""}`}>
+      <h1>Todo List</h1>
         {todos.map((todo) => (
           <TodoItem key={todo.id} item={todo} onCheck={onCheck} />
         ))}
@@ -62,9 +65,8 @@ export default function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Todo List</h1>
+    
       <TodoList todos={todos} onCheck={handleCheck} />
-    </div>
+    
   );
 }

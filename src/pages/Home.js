@@ -4,6 +4,7 @@ import CalendarWidget from '../widgets/calendar/CalendarWidget';
 import WeatherWidget from "../widgets/weather/WeatherWidget";
 import Clock from '../components/Clock';
 import Todo from '../widgets/todo/todo'
+import StickyNote from '../widgets/stickyNote/StickyNote'
 
 import "../App.css";
 
@@ -130,6 +131,7 @@ function AddItem(props) {
   const [widgets, setWidgets] = useState([]);
 
   const handleWeatherAdd = () => {
+    setOpen(false);
     setWidgets([
       ...widgets,
       <Draggable key={widgets.length} grid={[300, 300]}>
@@ -139,10 +141,20 @@ function AddItem(props) {
   };
 
   const handleTODOAdd = () => {
+    setOpen(false);
     setWidgets([
       ...widgets,
       <Draggable key={widgets.length} grid={[300, 300]}>
         <Todo />
+      </Draggable>
+    ]);
+  };
+  const handleStickyAdd = () => {
+    setOpen(false);
+    setWidgets([
+      ...widgets,
+      <Draggable key={widgets.length} grid={[300, 300]}>
+        <StickyNote />
       </Draggable>
     ]);
   };
@@ -175,6 +187,9 @@ function AddItem(props) {
             </button>
             <button className="Auth-button" onClick={handleTODOAdd}>
               Add TODO Widget
+            </button>
+            <button className="Auth-button" onClick={handleStickyAdd}>
+              Add Sticky Note Widget
             </button>
           </div>
         </div>

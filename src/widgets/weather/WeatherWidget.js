@@ -35,7 +35,7 @@ const WeatherWidget = () => {
   };
 
   return (
-    <Draggable grid={[25, 25]}>
+    <Draggable grid={[25, 25]} defaultPosition={{x: -50, y: 220}}>
       <div className={`weather-widget ${isFlipped ? 'flipped' : ''}`}>
         <div className="widget-handle">
           <div className="widget-handle-bar"></div>
