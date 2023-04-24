@@ -1,22 +1,37 @@
 import React, { useState } from "react";
 import Draggable from "react-draggable";
 import { FaCheck } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import "./todo.css";
 
-const TodoItem = ({ item, onCheck }) => {
+const TodoItem = ({ item, onCheck, onDelete }) => {
   const [checked, setChecked] = useState(false);
+  const [items, setItems] = useState([]);
 
   const handleCheck = () => {
     setChecked(!checked);
     onCheck(item.id);
   };
 
-  return (
+  const handleDelete = () => {
+    
+  };
+
+  const handleDeleteWidgets = () => {
+  const widgetsContainer = document.querySelector(".widgets-container");
+  widgetsContainer.innerHTML = '';
+  setItems([]);
+};
+
+ return (
     <div className="todo-item">
       <div className={`check ${checked ? "checked" : ""}`} onClick={handleCheck}>
         <FaCheck />
       </div>
       <div className={`title ${checked ? "checked" : ""}`}>{item.title}</div>
+      <div className="delete" onClick={handleDelete}>
+        <FaTrash />
+      </div>
     </div>
   );
 };

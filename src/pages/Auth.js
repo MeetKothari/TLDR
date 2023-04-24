@@ -39,6 +39,7 @@ export default function AuthForm(props) {
     console.log(userObject);
     setUser(userObject);
     document.getElementById("signInDiv").hidden = true;
+    navigate('/home');
   }
 
   function handleSignOut(event) {
@@ -59,7 +60,7 @@ export default function AuthForm(props) {
       document.getElementById("signInDiv"),
       { theme: "outline", size: "large"}
     );
-
+    
     google.accounts.id.prompt();
   }, [])
 

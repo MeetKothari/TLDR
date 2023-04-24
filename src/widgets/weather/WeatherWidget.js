@@ -3,7 +3,7 @@ import axios from 'axios';
 import Draggable from 'react-draggable';
 import './weather.css';
 
-const WeatherWidget = () => {
+const WeatherWidget = ({ id, handleDelete }) => {
   const [location, setLocation] = useState('Lowell');
   const [city, setCity] = useState('');
   const [temperature, setTemperature] = useState('');
@@ -34,6 +34,10 @@ const WeatherWidget = () => {
     setLocation(event.target.value);
   };
 
+  const handleDeleteWidget = () => {
+    handleDelete(id);
+  };
+
   return (
     <Draggable bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }}  grid={[25, 25]} defaultPosition={{x: -50, y: 220}}>
       <div className={`weather-widget ${isFlipped ? 'flipped' : ''}`}>
@@ -47,7 +51,8 @@ const WeatherWidget = () => {
             <h2 id='city'>{city}</h2>
             <h2 id='temperature'>{temperature}&#176; F</h2>
             <p id='conditions'>{conditions}</p>
-            <button onClick={() => setIsFlipped(true)}>Settings</button>
+            <button className="weather-widget-button" onClick={() => setIsFlipped(true)}>Settings</button>
+            <button className="del-button" onClick={handleDeleteWidget}>Delete</button>
           </div>
           <div className="back">
             <form onSubmit={handleSubmit}>
@@ -58,7 +63,7 @@ const WeatherWidget = () => {
                 value={location}
                 onChange={handleInputChange}
               />
-              <button type="submit">Submit</button>
+              <button className="weather-widget-button" type="submit">Submit</button>
             </form>
           </div>
         </div>

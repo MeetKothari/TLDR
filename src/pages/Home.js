@@ -100,11 +100,6 @@ export default function App() {
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
         <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
       </Navbar>
-      <Draggable grid={[300, 300]}>
-        <div className = "widget-container">
-          <CalendarWidget selectedDate={new Date()} onDateChange={() => {}} /> {/* use CalendarWidget component */}
-        </div>
-      </Draggable>
       <Home items={items} />
     </div>
   );
@@ -136,6 +131,16 @@ function AddItem(props) {
       ...widgets,
       <Draggable key={widgets.length} grid={[300, 300]}>
         <WeatherWidget />
+      </Draggable>
+    ]);
+  };
+
+  const handleCalendarAdd = () => {
+    setOpen(false);
+    setWidgets([
+      ...widgets,
+      <Draggable key={widgets.length} grid={[300, 300]}>
+        <CalendarWidget />
       </Draggable>
     ]);
   };
@@ -181,6 +186,9 @@ function AddItem(props) {
           <div className="popup-container">
             <button className="close-button" onClick={handlePopupClose}>
               Close
+            </button>
+            <button className="Auth-button" onClick={handleCalendarAdd}>
+              Add Calendar Widget
             </button>
             <button className="Auth-button" onClick={handleWeatherAdd}>
               Add Weather Widget

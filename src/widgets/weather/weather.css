@@ -6,8 +6,8 @@
   border-radius: 20px;
 }
 
-.weather-widget button {
-  margin-top: 225px;
+.weather-widget-button {
+  margin-top: 10px;
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
@@ -36,7 +36,7 @@
   font-size: 18px;
 }
 
-.weather-widget button[type="submit"] {
+.weather-widget-button[type="submit"] {
   margin-top: 50px;
   font-size: 18px;
 }
@@ -82,3 +82,25 @@
   margin-top: 150px;
   font-size: 28px;
 }
+
+.weather-widget-button {
+  margin-top: 295px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #008CBA;
+  color: white;
+  cursor: pointer;
+}
+
+
+.del-button {
+  margin-top: 30px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+

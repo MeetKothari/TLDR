@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable'; 
 
+import '../App.css'
+
 function WidgetPopup() {
   const [widgetType, setWidgetType] = useState('Square');
   const [widgetColor, setWidgetColor] = useState('black');
@@ -39,7 +41,7 @@ function WidgetPopup() {
 
   return (
     <>
-    <div className="widget-popup">
+    <div className="Auth-content">
       <div className="popup-info">
         <h2>Widget:</h2>
         <select value={widgetType} onChange={handleWidgetTypeChange}>
