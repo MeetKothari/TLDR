@@ -33,7 +33,7 @@ const TodoList = ({ todos, onCheck }) => {
   };
 
   return (
-    <Draggable handle={isDragging ? null : ".todo-list"} onStart={onStart} onStop={onStop} defaultPosition={{x: -1050, y: 500}}>
+    <Draggable handle={isDragging ? null : ".todo-list"} onStart={onStart} onStop={onStop} defaultPosition={{x: -1050, y: 500}} bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }} >
       
       
       <div className={`todo-list ${isDragging ? "dragging" : ""}`}>

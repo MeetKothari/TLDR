@@ -1,9 +1,9 @@
-.todo-list {
+.sticky-list {
     width: 200px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #ffff99;
     padding: 20px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   }
@@ -49,6 +49,7 @@
     opacity: 0.5;
   }
   .StickyNote {
+    height: 150px;
     position: relative;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -72,4 +73,8 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
+  }
+  textarea{
+    border:none !important;
+    outline: none;
   }
