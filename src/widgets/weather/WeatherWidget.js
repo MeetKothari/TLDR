@@ -3,6 +3,8 @@ import axios from 'axios';
 import Draggable from 'react-draggable';
 import './weather.css';
 
+import { ReactComponent as SettingsIcon } from "../components/settings.svg";
+
 const WeatherWidget = ({ id, handleDelete }) => {
   const [location, setLocation] = useState('Lowell');
   const [city, setCity] = useState('');
@@ -51,7 +53,7 @@ const WeatherWidget = ({ id, handleDelete }) => {
             <h2 id='city'>{city}</h2>
             <h2 id='temperature'>{temperature}&#176; F</h2>
             <p id='conditions'>{conditions}</p>
-            <button className="weather-widget-button" onClick={() => setIsFlipped(true)}>Settings</button>
+            <SettingsButton icon={<SettingsIcon/>} onClick={() => setIsFlipped(true)} />
             <button className="del-button" onClick={handleDeleteWidget}>Delete</button>
           </div>
           <div className="back">
@@ -71,5 +73,22 @@ const WeatherWidget = ({ id, handleDelete }) => {
     </Draggable>
   );
 };
+
+function SettingsButton(props) {
+
+  return (
+    <li className="settings-button-holder">
+      <a
+        href="#"
+        className="settings-button"
+        onClick={() => {
+          props.onClick && props.onClick();
+        }}
+      >
+        {props.icon}
+      </a>
+    </li>
+  );
+}
 
 export default WeatherWidget;
