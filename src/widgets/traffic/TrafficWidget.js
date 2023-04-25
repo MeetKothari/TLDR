@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import './traffic.css';
 
-import { ReactComponent as SettingsIcon } from "../components/settings.svg";
+import { ReactComponent as SettingsIcon } from "../../components/settings.svg";
 import * as atlas from 'azure-maps-control';
 
 const TrafficWidget = () => {
@@ -63,7 +63,7 @@ const TrafficWidget = () => {
   }, [coordinates]);
 
   return (
-    <Draggable grid={[350, 350]} disabled={mapHovered}>
+    <Draggable bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }}  grid={[25, 25]} defaultPosition={{x: -50, y: 220}} disabled={mapHovered}>
       <div className={`traffic-widget ${isFlipped ? 'flipped' : ''}`}>
         <div className="widget-handle">
           <div className="widget-handle-bar"></div>

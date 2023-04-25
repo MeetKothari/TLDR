@@ -107,14 +107,19 @@
   left: 10px;
   width: 280px;
   height: 240px;
-  border-radius: 15px;
 }
 
-.popup-close {
-  position: absolute;
-  transform: translate(-5px, -230px);
+.popup-arrow {
+  display: none;
+  visibility: hidden;
 }
 
-.traffic-widget button {
-  background-color: transparent;
+.popup-content-container {
+  display: none;
+  visibility: hidden;
+}
+
+.incident-popup-content {
+  display: none;
+  visibility: hidden;
 }

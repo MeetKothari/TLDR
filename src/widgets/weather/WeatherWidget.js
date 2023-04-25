@@ -3,7 +3,7 @@ import axios from 'axios';
 import Draggable from 'react-draggable';
 import './weather.css';
 
-import { ReactComponent as SettingsIcon } from "../components/settings.svg";
+import { ReactComponent as SettingsIcon } from "../../components/settings.svg";
 
 const WeatherWidget = ({ id, handleDelete }) => {
   const [location, setLocation] = useState('Lowell');

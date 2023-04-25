@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import WidgetPopup from "./WidgetPopup";
 import CalendarWidget from '../widgets/calendar/CalendarWidget';
 import WeatherWidget from "../widgets/weather/WeatherWidget";
+import TrafficWidget from '../widgets/traffic/TrafficWidget'
 import Clock from '../components/Clock';
 import Todo from '../widgets/todo/todo'
 import StickyNote from '../widgets/stickyNote/StickyNote'
@@ -135,6 +136,16 @@ function AddItem(props) {
     ]);
   };
 
+  const handleTrafficAdd = () => {
+    setOpen(false);
+    setWidgets([
+      ...widgets,
+      <Draggable key={widgets.length} grid={[300, 300]}>
+        <TrafficWidget />
+      </Draggable>
+    ]);
+  };
+
   const handleCalendarAdd = () => {
     setOpen(false);
     setWidgets([
@@ -154,6 +165,7 @@ function AddItem(props) {
       </Draggable>
     ]);
   };
+  
   const handleStickyAdd = () => {
     setOpen(false);
     setWidgets([
@@ -193,6 +205,9 @@ function AddItem(props) {
             <button className="Auth-button" onClick={handleWeatherAdd}>
               Add Weather Widget
             </button>
+            <button className="Auth-button" onClick={handleTrafficAdd}>
+              Add Traffic Widget
+            </button>
             <button className="Auth-button" onClick={handleTODOAdd}>
               Add TODO Widget
             </button>
@@ -211,12 +226,6 @@ function AddItem(props) {
     </li>
   );
 }
-
-
-
-
-
-
 
 function NavItem(props) {
   const [open, setOpen] = useState(false);
