@@ -63,7 +63,7 @@ const TodoList = ({ todos, onCheck, onAdd }) => {
   };
 
   return (
-    <Draggable handle={isDragging ? null : ".todo-list"} onStart={onStart} onStop={onStop} defaultPosition={{x: -1050, y: 500}} bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }} >
+    <Draggable handle={isDragging ? null : ".todo-list"} onStart={onStart} onStop={onStop} defaultPosition={{x: -500, y: 250}}>
       <div className={`todo-list ${isDragging ? "dragging" : ""}`}>
         <h1>Todo List</h1>
         {todos.map((todo) => (

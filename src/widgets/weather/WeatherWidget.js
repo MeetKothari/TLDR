@@ -41,7 +41,7 @@ const WeatherWidget = ({ id, handleDelete }) => {
   };
 
   return (
-    <Draggable bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }}  grid={[25, 25]} defaultPosition={{x: -50, y: 220}}>
+    <Draggable defaultPosition={{x: -500, y: 250}}>
       <div className={`weather-widget ${isFlipped ? 'flipped' : ''}`}>
         <div className="widget-handle">
           <div className="widget-handle-bar"></div>

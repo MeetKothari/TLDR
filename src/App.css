@@ -879,3 +879,14 @@ input[type="password"] {
 .widget-draggable .react-draggable {
   cursor: move;
 }
+
+.widgets-container {
+  height: 100%;
+  width: 100%;
+}
+
+.widgets-popup-container {
+  transform: translate(0, 350px);
+  height: 1080px;
+  width: 1920px;
+}

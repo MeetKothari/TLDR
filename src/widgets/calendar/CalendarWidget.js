@@ -14,7 +14,7 @@ export default function CalendarWidget(props) {
   };
 
   return (
-    <Draggable>
+    <Draggable defaultPosition={{x: -500, y: 250}}>
       <div className="calendar-widget">
         <Calendar
           value={props.selectedDate}
