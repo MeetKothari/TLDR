@@ -89,6 +89,8 @@ export default function App() {
   setItems([]);
 };
 
+
+
   return (
     <div>
       <Navbar>
@@ -128,7 +130,7 @@ function AddItem(props) {
     setOpen(false);
     setWidgets([
       ...widgets,
-      <Draggable key={widgets.length}>
+      <Draggable key={widgets.length} grid={[300, 300]}>
         <WeatherWidget />
       </Draggable>
     ]);
@@ -138,7 +140,7 @@ function AddItem(props) {
     setOpen(false);
     setWidgets([
       ...widgets,
-      <Draggable key={widgets.length}>
+      <Draggable key={widgets.length} grid={[300, 300]}>
         <TrafficWidget />
       </Draggable>
     ]);
@@ -148,7 +150,7 @@ function AddItem(props) {
     setOpen(false);
     setWidgets([
       ...widgets,
-      <Draggable key={widgets.length}>
+      <Draggable key={widgets.length} grid={[300, 300]}>
         <CalendarWidget />
       </Draggable>
     ]);
@@ -158,7 +160,7 @@ function AddItem(props) {
     setOpen(false);
     setWidgets([
       ...widgets,
-      <Draggable key={widgets.length}>
+      <Draggable key={widgets.length} grid={[300, 300]}>
         <Todo />
       </Draggable>
     ]);
@@ -168,7 +170,7 @@ function AddItem(props) {
     setOpen(false);
     setWidgets([
       ...widgets,
-      <Draggable key={widgets.length}>
+      <Draggable key={widgets.length} grid={[300, 300]}>
         <StickyNote />
       </Draggable>
     ]);

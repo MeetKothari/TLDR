@@ -88,7 +88,7 @@ const StickyNotes = () => {
   };
 
   return (
-    <Draggable handle={isDragging ? null : ".sticky-list"} onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)} defaultPosition={{x: -500, y: 250}}>
+    <Draggable handle={isDragging ? null : ".sticky-list"} onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)} defaultPosition={{x: -350, y: 500}} bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }} >
       <div className={`sticky-list ${isDragging ? "dragging" : ""}`}>
         <h1>Sticky Notes</h1>
         {notes.map((note) => (

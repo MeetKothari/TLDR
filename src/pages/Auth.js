@@ -10,6 +10,8 @@ import mySVG from '../components/coffee.svg';
 import mySVG1 from '../components/laying.svg';
 import mySVG2 from '../components/swinging.svg';
 import mySVG3 from '../components/ReadingSideDoodle.svg'
+import mySVG4 from '../components/plant.svg'
+import mySVG5 from '../components/dog.svg'
 
 
 export default function AuthForm(props) {
@@ -71,13 +73,11 @@ export default function AuthForm(props) {
   return (
     <div className="Auth-container">
       <div className="wrapper">
-        <img src={mySVG1} className="woman" alt="My SVG1" />
         <div className="Auth-intro">
           {/* <h1 className="Auth-intro-words"> Traffic. Weather. Sports. </h1>
           <h1 className="Auth-intro-words"> Your morning- simplified. </h1> */}
         </div>
         <img src={mySVG} className="coffee" alt="My SVG" />
-        <img src={mySVG2} className="swings" alt="My SVG1" />
         <img src={mySVG3} className="reading" alt="My SVG1" />
       </div>
       <div className="Auth-content">
@@ -86,12 +86,18 @@ export default function AuthForm(props) {
         <form className="Auth-form">
           <div className="form-group">
             <label htmlFor="email">Email address</label>
+            < div className = "email-field-wrapper" >
             <input
               type="email"
               className="form-control"
               id="email"
               placeholder="Enter email"
             />
+            <img src={mySVG1} className="woman" alt="My SVG1" />
+            <img src={mySVG2} className="swings" alt="My SVG1" />
+            <img src={mySVG4} className="plant" alt="My SVG4" />
+             <img src={mySVG5} className="dog" alt="My SVG5" />
+          </div>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>

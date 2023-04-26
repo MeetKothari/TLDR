@@ -102,6 +102,7 @@ body {
   align-items: center;
   min-height: 100%;
   background-color: #f8f8f8;
+  position: relative;
 }
 
 .Suth-container {
@@ -113,13 +114,40 @@ body {
 }
 
 .Auth-content {
-  background-color: white;
+  background-color: #f8f8f8;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  min-width: 400px;
+  max-width: 800px;
+  min-height: 400px;
+  max-height: 700px;
   width: 100%;
+  position: relative;
+  margin-right: 200px;
+  margin-top: 100px;
+  padding-left: 300px;
+  padding-right: 300px;
 }
+
+
+.Auth-form { 
+  min-width: 500px;
+  max-width: 600px;
+  position: relative;
+  background-color: #f8f8f8;
+}
+
+/* .Auth-form-container{
+
+  padding: 40px;
+  border-radius: 8px;
+  min-width: 600px;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+
+} */
 
 .Auth-title {
   font-size: 36px;
@@ -303,52 +331,87 @@ input[type="password"] {
   margin-bottom: 20px;
 }
 
-.coffee {
-  width: 50vw;
-  height: 50vh;
-  margin-top: 10px;
-  margin-right: 60px;
+.form-group-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
-.coffeehome{
+.form-group {
+  margin-bottom: 1rem;
+}
 
+.form-action-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email-field-wrapper {
+  position: relative;
+}
+
+
+.coffee {
+  width: 500px;
+  height: 500px;
+  margin-top: 10px;
+  margin-right: 60px;
+  position: relative;
+}
+
+.coffeehome {
   position: absolute;
-
-  width: 10vw;
-  height: 10vh;
+  width: 100px;
+  height: 100px;
   top: 0;
   left: 0;
-
 }
 
 .woman {
-  width: 30vw;
-  height: 20vh;
-  margin-top: -720px;
-  margin-left: 1200px;
+  width: 320px;
+  height: 450px;
   position: absolute;
   z-index: 1;
+  top: -330px;
+  left: 76%;
 }
 
 .swings {
-
-  width: 30vw;
-  height: 20vh;
-  margin-top: 750px;
-  margin-left: 1200px;
+  width: 270px;
+  height: 450px;
   position: absolute;
   z-index: 1;
+  top: 350px;
+  left: 40%;
+}
 
+
+.plant {
+  width: 325px;
+  height: 1140px;
+  position: absolute;
+  z-index: 1;
+  right: 100%;
+  top: -200px;
+}
+
+.dog {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  z-index: 1;
+  right: 90%;
+  top: -200px;
 }
 
 .reading {
-
-  width: 50vw;
-  height: 50vh;
-  margin-top: -800px;
+  width: 500px;
+  height: 500px;
+  margin-top: -60%;
   margin-right: 60px;
-
 }
+
 
 
 
@@ -878,15 +941,4 @@ input[type="password"] {
 
 .widget-draggable .react-draggable {
   cursor: move;
-}
-
-.widgets-container {
-  height: 100%;
-  width: 100%;
-}
-
-.widgets-popup-container {
-  transform: translate(0, 350px);
-  height: 1080px;
-  width: 1920px;
 }
