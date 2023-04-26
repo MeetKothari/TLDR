@@ -7,12 +7,6 @@ import Draggable from "react-draggable";
 export default function CalendarWidget(props) {
   const [items, setItems] = useState([]);
 
-  const handleDeleteWidgets = () => {
-    const widgetsContainer = document.querySelector(".widgets-container");
-    widgetsContainer.innerHTML = "";
-    setItems([]);
-  };
-
   return (
     <Draggable>
       <div className="calendar-widget">
@@ -21,7 +15,6 @@ export default function CalendarWidget(props) {
           onChange={props.onDateChange}
           calendarType="US"
         />
-        <button class="del-button" onClick={handleDeleteWidgets}>Delete</button>
       </div>
     </Draggable>
   );

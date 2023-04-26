@@ -17,12 +17,6 @@ const TodoItem = ({ item, onCheck, onDelete }) => {
     
   };
 
-  const handleDeleteWidgets = () => {
-  const widgetsContainer = document.querySelector(".widgets-container");
-  widgetsContainer.innerHTML = '';
-  setItems([]);
-};
-
  return (
     <div className="todo-item">
       <div className={`check ${checked ? "checked" : ""}`} onClick={handleCheck}>

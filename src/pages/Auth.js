@@ -1,6 +1,6 @@
 /* artwork credit: https://www.opendoodles.com/*/
 
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactSVG } from 'react-svg';
 import jwtDecode from 'jwt-decode';
@@ -12,6 +12,11 @@ import mySVG2 from '../components/swinging.svg';
 import mySVG3 from '../components/ReadingSideDoodle.svg'
 import mySVG4 from '../components/plant.svg'
 import mySVG5 from '../components/dog.svg'
+import mySVG6 from '../components/box.svg'
+import mySVG7 from '../components/griddy.svg'
+import mySVG8 from '../components/dog2.svg'
+import mySVG9 from '../components/heart.svg'
+import mySVG10 from '../components/icecream.svg'
 
 
 export default function AuthForm(props) {
@@ -72,15 +77,11 @@ export default function AuthForm(props) {
 
   return (
     <div className="Auth-container">
-      <div className="wrapper">
-        <div className="Auth-intro">
-          {/* <h1 className="Auth-intro-words"> Traffic. Weather. Sports. </h1>
-          <h1 className="Auth-intro-words"> Your morning- simplified. </h1> */}
-        </div>
-        <img src={mySVG} className="coffee" alt="My SVG" />
-        <img src={mySVG3} className="reading" alt="My SVG1" />
-      </div>
       <div className="Auth-content">
+        <h1 className="Auth-title">   
+        <span className="swirls"> Your morning: </span>
+        <span className="highlighter">simplified.</span>
+        </h1>
         <h1 className="Auth-title">Welcome to TL;DR. </h1>
         <h2 className="Auth-subtitle">Please sign in or create an account.</h2>
         <form className="Auth-form">
@@ -96,7 +97,7 @@ export default function AuthForm(props) {
             <img src={mySVG1} className="woman" alt="My SVG1" />
             <img src={mySVG2} className="swings" alt="My SVG1" />
             <img src={mySVG4} className="plant" alt="My SVG4" />
-             <img src={mySVG5} className="dog" alt="My SVG5" />
+            <img src={mySVG5} className="dog" alt="My SVG5" />
           </div>
           </div>
           <div className="form-group">
@@ -161,6 +162,7 @@ export default function AuthForm(props) {
                 </button>
               </>
             )}
+
           </div>
           <p className="Auth-forgot-password">
             Forgot password? <Link to="/forgot-password">Reset here!</Link>
@@ -178,16 +180,15 @@ export default function AuthForm(props) {
         }
 
         { user && 
-          <div>
+          <div className="block">
             <img src={user.picture}></img>
             <h3>{user.name}</h3>
           </div> 
         }
       </div>
       {/* THIS IS THE END OF EVERYTHING THAT RAUL ADDED*/}
-
-
-
+      <img src={mySVG7} className="griddy" alt="My SVG" />
+      <img src={mySVG6} className="box" alt="My SVG5" />
       </div>
     </div>
   );

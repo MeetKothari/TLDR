@@ -82,21 +82,12 @@ export default function App() {
   const handleSettingsClick = () => {
     navigate("/settings");
   };
-  
-  const handleDeleteWidgets = () => {
-  const widgetsContainer = document.querySelector(".widgets-container");
-  widgetsContainer.innerHTML = '';
-  setItems([]);
-};
-
-
 
   return (
     <div>
       <Navbar>
         <h1 className="logo">TLDR</h1>
         <Clock /> {/* insert clock component */}
-        <NavItem icon={<CloseIcon />} onClick={handleDeleteWidgets} />
         <AddItem icon={<AddIcon />} onClick={handleAddClick} />
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
         <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
@@ -130,7 +121,7 @@ function AddItem(props) {
     setOpen(false);
     setWidgets([
       ...widgets,
-      <Draggable key={widgets.length} grid={[300, 300]}>
+      <Draggable key={widgets.length} bounds="parent">
         <WeatherWidget />
       </Draggable>
     ]);
@@ -219,9 +210,7 @@ function AddItem(props) {
       )}
 
       <div className="widgets-popup-container">
-        <div className="widgets-container">
-          {widgets}
-        </div>
+        {widgets}
       </div>
     </li>
   );

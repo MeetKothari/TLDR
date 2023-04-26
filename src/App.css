@@ -10,6 +10,7 @@
 
 body {
   height: 100%;
+  padding: 0;
 }
 
 .App {
@@ -25,6 +26,20 @@ body {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+
+.S9gUrf-YoZ4jf, .S9gUrf-YoZ4jf {
+  background-color: #f8f8f8;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: align-items;
+}
+
+.block  {
+  background-color: #f8f8f8;
 }
 
 .App-header {
@@ -124,10 +139,9 @@ body {
   max-height: 700px;
   width: 100%;
   position: relative;
-  margin-right: 200px;
-  margin-top: 100px;
   padding-left: 300px;
   padding-right: 300px;
+  margin-top: 40px;
 }
 
 
@@ -325,11 +339,11 @@ input[type="password"] {
   justify-content: center;
 }
 
-.Auth-intro {
-  padding: 60px;
-  min-width: 40vw;
-  margin-bottom: 20px;
+#simplify:hover {
+  border: 1px solid black;
+  border-radius: 50%;
 }
+
 
 .form-group-container {
   display: flex;
@@ -351,14 +365,69 @@ input[type="password"] {
   position: relative;
 }
 
+.highlighter:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: yellow;
+  box-shadow: 
+    0 0 10px yellow,
+    10px 10px 10px yellow,
+    -10px -10px 20px yellow;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
 
 .coffee {
-  width: 500px;
-  height: 500px;
-  margin-top: 10px;
-  margin-right: 60px;
+  width: 320px;
+  height: 450px;
   position: relative;
+  top: 200px;
+  left: 0%;
+  padding-right: 20px;
 }
+
+.dog2 {
+  width: 320px;
+  height: 450px;
+  position: relative;
+  top: -530px;
+  left: 160%;
+  padding-left: 35px;
+}
+
+.heart {
+  width: 120px;
+  height: 450px;
+  position: relative;
+  top: -530px;
+  left: 160%;
+  padding-left: 35px;
+}
+
+
+.box {
+  width: 300px;
+  height: 450px;
+  position: relative;
+  z-index: 1;
+  top:-350px;
+  left: 60%;
+  padding-left: 20px;
+}
+
+
+.griddy {
+  width: 300px;
+  height: 450px;
+  position: relative;
+  z-index: 1;
+  top:-590px;
+  left: 100%;
+  padding-left: 20px;
+}
+
+
 
 .coffeehome {
   position: absolute;
@@ -382,7 +451,7 @@ input[type="password"] {
   height: 450px;
   position: absolute;
   z-index: 1;
-  top: 350px;
+  top: 410px;
   left: 40%;
 }
 
@@ -393,7 +462,7 @@ input[type="password"] {
   position: absolute;
   z-index: 1;
   right: 100%;
-  top: -200px;
+  top: -150px;
 }
 
 .dog {
