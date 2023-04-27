@@ -7,6 +7,10 @@ import StickyNoteWidget from '../widgets/stickyNote/StickyNoteWidget'
 import Clock from '../components/Clock';
 
 import "../App.css";
+import mySVG from '../components/readingcross.svg';
+import mySVG1 from '../components/runningwoman.svg';
+import mySVG2 from '../components/ipd.svg';
+import mySVG3 from '../components/zombie.svg';
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ReactComponent as AddIcon } from "../components/add.svg";
@@ -48,6 +52,10 @@ export default function App(props) {
 
   return (
     <div>
+      <img src={mySVG} className="readingcross" alt="My SVG1" />
+      <img src={mySVG1} className="runningwoman" alt="My SVG1" />
+      <img src={mySVG2} className="ipd" alt="My SVG1" />
+      <img src={mySVG3} className="zmb" alt="My SVG1" />
       <Navbar>
           <Clock /> {/* insert clock component */}
           <AddItem icon={<AddIcon></AddIcon>} onWidgetAdd={widget => setWidgets([...widgets, widget])} />
