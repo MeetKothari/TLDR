@@ -39,7 +39,7 @@ export default function App(props) {
       <Navbar>
         <h1 className="logo">TLDR</h1>
         <Clock /> {/* insert clock component */}
-        <AddItem icon={<AddIcon />} onClick={widget => setWidgets([...widgets, widget])} />
+        <AddItem icon={<AddIcon></AddIcon>} onWidgetAdd={widget => setWidgets([...widgets, widget])} />
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
         <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
       </Navbar>
@@ -67,27 +67,27 @@ function AddItem(props) {
 
   const handleWeatherAdd = () => {
     setOpen(false);
-    props.onClick(<WeatherWidget />);
+    props.onWidgetAdd(<WeatherWidget />);
   };
 
   const handleTrafficAdd = () => {
     setOpen(false);
-    props.onClick(<TrafficWidget />);
+    props.onWidgetAdd(<TrafficWidget />);
   };
 
   const handleCalendarAdd = () => {
     setOpen(false);
-    props.onClick(<CalendarWidget />);
+    props.onWidgetAdd(<CalendarWidget />);
   };
 
   const handleTODOAdd = () => {
     setOpen(false);
-    props.onClick(<TodoWidget />);
+    props.onWidgetAdd(<TodoWidget />);
   };
   
   const handleStickyAdd = () => {
     setOpen(false);
-    props.onClick(<StickyNoteWidget />);
+    props.onWidgetAdd(<StickyNoteWidget />);
   };
 
   const handlePopupClose = () => {
