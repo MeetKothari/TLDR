@@ -1,0 +1,140 @@
+.help-container {
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 10rem;
+}
+
+.menu {
+  width: 20%;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-right: 1px solid #eee;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.menu-item:hover {
+  background-color: #f2f2f2;
+}
+
+.menu-item-icon {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.menu-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-subitem {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.menu-subitem:hover {
+  background-color: #f2f2f2;
+}
+
+.menu-subsublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.menu-sublist {
+  position: relative;
+}
+
+.menu-subsublist {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-top: -1rem;
+}
+
+
+.menu-subsubitem {
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 3rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.ArticleCard {
+  margin-bottom: 2rem;
+}
+
+.submenu-content {
+  margin-left: 20px;
+}
+
+.ticket-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.ticket-form label {
+  margin-top: 10px;
+}
+
+.ticket-form input,
+.ticket-form textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.ticket-form button {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ticket-form button:hover {
+  background-color: #0062cc;
+}
+

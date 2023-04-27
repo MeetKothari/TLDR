@@ -13,6 +13,7 @@ import { ReactComponent as AddIcon } from "../components/add.svg";
 import { ReactComponent as SettingsIcon } from "../components/settings.svg";
 import { ReactComponent as LogoutIcon } from "../components/logout.svg";
 import { ReactComponent as CloseIcon } from "../components/close.svg";
+import { ReactComponent as HelpIcon } from "../components/help.svg";
 import Draggable from "react-draggable";
 
 export default function App(props) {
@@ -22,6 +23,11 @@ export default function App(props) {
   const handleLogout = () => {
     // perform logout logic here
     navigate("/");
+  };
+
+  const handleHelp = () => {
+    // perform logout logic here
+    navigate("/help");
   };
 
   useEffect(() => {
@@ -46,6 +52,7 @@ export default function App(props) {
         <Clock /> {/* insert clock component */}
         <AddItem icon={<AddIcon></AddIcon>} onWidgetAdd={widget => setWidgets([...widgets, widget])} />
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
+        <NavItem icon={<HelpIcon/>} onClick={handleHelp} />
         <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
       </Navbar>
       <div className="widgets-container">

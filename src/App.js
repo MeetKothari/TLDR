@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import ForgotPassword from './components/ForgotPassword'; // import the new component
 import ChangeNickname from './components/ChangeNickname'; // import change
+import Help from './pages/help/Help'; // import help page
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/forgot-password" element={<ForgotPassword />} /> {/* add the new route */}
         <Route path="/change-nickname" element={<ChangeNickname />} /> {/* add the new route */}
+        <Route path="/help" element={<Help />} /> {/* add the new route */}
       </Routes>
     </BrowserRouter>
   )
