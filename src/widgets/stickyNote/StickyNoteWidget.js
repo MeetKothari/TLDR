@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Draggable from "react-draggable";
 import { FaCheck } from "react-icons/fa";
 import "./sticky.css";
@@ -27,7 +27,8 @@ const StickyNote = ({ note, onDelete, onSave }) => {
     const [text, setText] = useState(note.content);
   
     const handleDelete = () => {
-      onDelete(note.id);
+      // onDelete(note.id);
+      setText("");
     };
   
     const handleCancel = () => {
@@ -57,15 +58,21 @@ const StickyNote = ({ note, onDelete, onSave }) => {
         {isEditing || isHovering ? (
           <div>
             <textarea rows={10} cols={20} style={{ border: "none" }} value={text} onChange={handleChange} onBlur={handleBlur} autoFocus />
+            <div className="buttons">
+              <button className="delete" onClick={handleDelete}>
+            <img width="20px"src={DelSvg} alt="delete"/>
+              </button>
+            </div>
           </div>
         ) : (
           <div>
             <p>{note.content}</p>
-            {/* <div className="buttons">
+            <br/>
+            <div className="buttons">
               <button className="delete" onClick={handleDelete}>
             <img width="20px"src={DelSvg} alt="delete"/>
               </button>
-            </div> */}
+            </div>
           </div>
         )}
       </div>
@@ -86,9 +93,29 @@ const StickyNotes = () => {
   const handleSave = (note) => {
     setNotes(notes.map((n) => (n.id === note.id ? note : n)));
   };
+ // Calculate screen size and set bounds accordingly
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const bounds = {
+    top: height * 0.05,
+    left: 0,
+    right: width * 0.87,
+    bottom: height * 0.6,
+  };
   return (
-    <Draggable handle={isDragging ? null : ".sticky-list"} onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)} defaultPosition={{x: -350, y: 500}} bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }} >
+    <Draggable handle={isDragging ? null : ".sticky-list"} onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)} defaultPosition={{x: 0, y: 500}} bounds={bounds} >
       <div className={`sticky-list ${isDragging ? "dragging" : ""}`}>
         <h1>Sticky Notes</h1>
         {notes.map((note) => (

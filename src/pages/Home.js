@@ -33,6 +33,11 @@ export default function App(props) {
   const handleSettingsClick = () => {
     navigate("/settings");
   };
+  const handleDeleteWidget = (index) => {
+    const newWidgets = [...widgets];
+    newWidgets.splice(index, 1);
+    setWidgets(newWidgets);
+  };
 
   return (
     <div>
@@ -46,7 +51,20 @@ export default function App(props) {
       <div className="widgets-container">
         {widgets.map((widget, index) => (
           <Draggable key={index}>
-            {widget}
+            <div className="widget">
+              
+              {widget}
+                <button className="delete-button" onClick={() => {
+                  const newWidgets = [...widgets];
+                  newWidgets.splice(index, 1);
+                  setWidgets(newWidgets);
+                }}>
+                  <CloseIcon />
+                </button>
+                
+              
+              
+            </div>
           </Draggable>
         ))}
       </div>
@@ -99,7 +117,7 @@ function AddItem(props) {
       <a
         href="#"
         className="icon-button"
-        onClick={() => {
+        onClick={(props) => {
           setOpen(true);
           props.onClick && props.onClick();
         }}

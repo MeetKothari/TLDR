@@ -61,9 +61,29 @@ const TrafficWidget = () => {
   useEffect(() => {
     loadMap();
   }, [coordinates]);
+ // Calculate screen size and set bounds accordingly
+ const [width, setWidth] = useState(window.innerWidth);
+ const [height, setHeight] = useState(window.innerHeight);
 
+ useEffect(() => {
+   const handleResize = () => {
+     setWidth(window.innerWidth);
+     setHeight(window.innerHeight);
+   };
+
+   window.addEventListener("resize", handleResize);
+
+   return () => window.removeEventListener("resize", handleResize);
+ }, []);
+
+ const bounds = {
+   top: height * 0.01,
+   left: 0,
+   right: width * 0.83,
+   bottom: height * 0.6,
+ };
   return (
-    <Draggable bounds={{ top: 200, left: -1100, right: -50, bottom: 1000 }}  grid={[25, 25]} defaultPosition={{x: -50, y: 220}} disabled={mapHovered}>
+    <Draggable bounds={bounds}  grid={[25, 25]} defaultPosition={{x: -50, y: 220}} disabled={mapHovered}>
       <div className={`traffic-widget ${isFlipped ? 'flipped' : ''}`}>
         <div className="widget-handle">
           <div className="widget-handle-bar"></div>
