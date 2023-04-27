@@ -104,11 +104,12 @@ a {
 }
 
 .logo {
-  flex: 1;
+  position: absolute;
+  left: 20px;
+  top: -4px;
   font-family: 'Red Hat Display', sans-serif;
   color: #ffffff;
-  display: flex;
-  align-items: center;
+  max-width: fit-content;
 }
 
 .popup {
@@ -160,23 +161,3 @@ a {
   border-radius: 50%;
 }
 
-
-/* Light mode styles */
-body {
-  background-color: #fff;
-  color: #333;
-}
-
-.logo {
-  color: #fff;
-}
-
-/* Dark mode styles */
-body.dark {
-  background-color: #333;
-  color: #fff;
-}
-
-body.dark .logo {
-  color: #fff;
-}

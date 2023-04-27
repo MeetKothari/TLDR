@@ -39,6 +39,7 @@ export default function App(props) {
   const handleSettingsClick = () => {
     navigate("/settings");
   };
+
   const handleDeleteWidget = (index) => {
     const newWidgets = [...widgets];
     newWidgets.splice(index, 1);
@@ -48,18 +49,16 @@ export default function App(props) {
   return (
     <div>
       <Navbar>
-        <h1 className="logo">TLDR</h1>
-        <Clock /> {/* insert clock component */}
-        <AddItem icon={<AddIcon></AddIcon>} onWidgetAdd={widget => setWidgets([...widgets, widget])} />
-        <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
-        <NavItem icon={<HelpIcon/>} onClick={handleHelp} />
-        <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
+          <Clock /> {/* insert clock component */}
+          <AddItem icon={<AddIcon></AddIcon>} onWidgetAdd={widget => setWidgets([...widgets, widget])} />
+          <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
+          <NavItem icon={<HelpIcon/>} onClick={handleHelp} />
+          <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
       </Navbar>
       <div className="widgets-container">
         {widgets.map((widget, index) => (
           <Draggable key={index}>
-            <div className="widget">
-              
+            <div className="widget">  
               {widget}
                 <button className="delete-button" onClick={() => {
                   const newWidgets = [...widgets];
@@ -67,10 +66,7 @@ export default function App(props) {
                   setWidgets(newWidgets);
                 }}>
                   <CloseIcon />
-                </button>
-                
-              
-              
+                </button> 
             </div>
           </Draggable>
         ))}
@@ -82,7 +78,12 @@ export default function App(props) {
 function Navbar(props) {
   return (
     <nav className="navbar">
-      <ul className="navbar-nav">{props.children}</ul>
+      <ul className="navbar-nav">
+        <li className="logo">
+          <h1>TLDR</h1>
+        </li>
+        {props.children}
+      </ul>
     </nav>
   );
 }
