@@ -1,57 +1,23 @@
 import React, { useState, useEffect } from "react";
-import WidgetPopup from "./WidgetPopup";
 import CalendarWidget from '../widgets/calendar/CalendarWidget';
 import WeatherWidget from "../widgets/weather/WeatherWidget";
 import TrafficWidget from '../widgets/traffic/TrafficWidget'
+import TodoWidget from '../widgets/todo/TodoWidget'
+import StickyNoteWidget from '../widgets/stickyNote/StickyNoteWidget'
 import Clock from '../components/Clock';
-import Todo from '../widgets/todo/todo'
-import StickyNote from '../widgets/stickyNote/StickyNote'
 
 import "../App.css";
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ReactComponent as AddIcon } from "../components/add.svg";
-import { ReactComponent as DarkIcon } from "../components/dark.svg";
-import { ReactComponent as LightIcon } from "../components/light.svg";
-import { ReactComponent as ProfileIcon } from "../components/profile.svg";
 import { ReactComponent as SettingsIcon } from "../components/settings.svg";
-import { ReactComponent as SportsIcon } from "../components/sports.svg";
-import { ReactComponent as TrafficIcon } from "../components/traffic.svg";
-import { ReactComponent as WeatherIcon } from "../components/weather.svg";
 import { ReactComponent as LogoutIcon } from "../components/logout.svg";
 import { ReactComponent as CloseIcon } from "../components/close.svg";
 import Draggable from "react-draggable";
 
-export default function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState('')
+export default function App(props) {
   const navigate = useNavigate();
-
-  const [clockType, setClockType] = useState("digital");
-
-  const handleClockTypeChange = (event) => {
-    setClockType(event.target.value);
-  };
-
-  useEffect(() => {
-    const isDarkModeSet = localStorage.getItem("dark-mode");
-    setIsDarkMode(isDarkModeSet === "true");
-  }, []);
-
-  const handleToggleTheme = () => {
-    const newIsDarkMode = !isDarkMode;
-    setIsDarkMode(newIsDarkMode);
-    localStorage.setItem("dark-mode", newIsDarkMode.toString());
-  };
-
-  useEffect(() => {
-    const body = document.body;
-    if (isDarkMode) {
-      body.classList.add("dark");
-    } else {
-      body.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+  const [widgets, setWidgets] = useState([]);
 
   const handleLogout = () => {
     // perform logout logic here
@@ -64,21 +30,6 @@ export default function App() {
       body.style.backgroundColor = themeColor;
   }, []);
 
-  const [addMenuOpen, setAddMenuOpen] = useState(false);
-  const [items, setItems] = useState([]);
-
-  const handleAddClick = () => {
-    setAddMenuOpen(!addMenuOpen);
-  };
-
-  const handleAddItem = (itemName) => {
-    setItems([...items, itemName]);
-  };
-
-  const handleProfileClick = () => {
-    navigate("/profile");
-  };
-
   const handleSettingsClick = () => {
     navigate("/settings");
   };
@@ -88,21 +39,19 @@ export default function App() {
       <Navbar>
         <h1 className="logo">TLDR</h1>
         <Clock /> {/* insert clock component */}
-        <AddItem icon={<AddIcon />} onClick={handleAddClick} />
+        <AddItem icon={<AddIcon />} onClick={widget => setWidgets([...widgets, widget])} />
         <NavItem icon={<SettingsIcon/>} onClick={handleSettingsClick} />
         <NavItem icon={<LogoutIcon/>} onClick={handleLogout} />
       </Navbar>
-      <Home items={items} />
+      <div className="widgets-container">
+        {widgets.map((widget, index) => (
+          <Draggable key={index}>
+            {widget}
+          </Draggable>
+        ))}
+      </div>
     </div>
   );
-}
-
-function Home(props) {
-  return <div className="body">{props.items.map((item, index) => <Square key={index} />)}</div>;
-}
-
-function Square() {
-  return <div className="square"></div>;
 }
 
 function Navbar(props) {
@@ -115,56 +64,30 @@ function Navbar(props) {
 
 function AddItem(props) {
   const [open, setOpen] = useState(false);
-  const [widgets, setWidgets] = useState([]);
 
   const handleWeatherAdd = () => {
     setOpen(false);
-    setWidgets([
-      ...widgets,
-      <Draggable key={widgets.length} bounds="parent">
-        <WeatherWidget />
-      </Draggable>
-    ]);
+    props.onClick(<WeatherWidget />);
   };
 
   const handleTrafficAdd = () => {
     setOpen(false);
-    setWidgets([
-      ...widgets,
-      <Draggable key={widgets.length} grid={[300, 300]}>
-        <TrafficWidget />
-      </Draggable>
-    ]);
+    props.onClick(<TrafficWidget />);
   };
 
   const handleCalendarAdd = () => {
     setOpen(false);
-    setWidgets([
-      ...widgets,
-      <Draggable key={widgets.length} grid={[300, 300]}>
-        <CalendarWidget />
-      </Draggable>
-    ]);
+    props.onClick(<CalendarWidget />);
   };
 
   const handleTODOAdd = () => {
     setOpen(false);
-    setWidgets([
-      ...widgets,
-      <Draggable key={widgets.length} grid={[300, 300]}>
-        <Todo />
-      </Draggable>
-    ]);
+    props.onClick(<TodoWidget />);
   };
   
   const handleStickyAdd = () => {
     setOpen(false);
-    setWidgets([
-      ...widgets,
-      <Draggable key={widgets.length} grid={[300, 300]}>
-        <StickyNote />
-      </Draggable>
-    ]);
+    props.onClick(<StickyNoteWidget />);
   };
 
   const handlePopupClose = () => {
@@ -208,25 +131,11 @@ function AddItem(props) {
           </div>
         </div>
       )}
-
-      <div className="widgets-popup-container">
-        {widgets}
-      </div>
     </li>
   );
 }
 
 function NavItem(props) {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    let handler = (e)=> {
-      if (e.target) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-  });
 
   return (
     <li className="nav-item">
@@ -234,14 +143,11 @@ function NavItem(props) {
         href="#"
         className="icon-button"
         onClick={() => {
-          setOpen(!open);
           props.onClick && props.onClick();
         }}
       >
         {props.icon}
       </a>
-
-      {open && props.children}
     </li>
   );
 }
