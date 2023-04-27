@@ -748,9 +748,10 @@ label {
 .readingsit{
 
   position: absolute;
-  width: 50vw;
+  width: 30vw;
   height: 50vh;
-  left: 63%;
+  left: 70%;
+  padding-left: 30px;
 
 }
 
