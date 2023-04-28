@@ -25,6 +25,9 @@ function Help() {
   return (
     <div className="help-container">
       <div className="menu">
+      <a href="/home">
+          <img src={mySVG1} style={{width: "4.5em"}} className="coffeehome" alt="Home" />
+        </a>
         <ul>
           <li className="menu-item" onClick={handleMenuClick}>
             FAQ and Error Handling:
