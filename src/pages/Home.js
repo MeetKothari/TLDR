@@ -44,12 +44,6 @@ export default function App(props) {
     navigate("/settings");
   };
 
-  const handleDeleteWidget = (index) => {
-    const newWidgets = [...widgets];
-    newWidgets.splice(index, 1);
-    setWidgets(newWidgets);
-  };
-
   return (
     <div>
       <img src={mySVG} className="readingcross" alt="My SVG1" />
@@ -65,16 +59,16 @@ export default function App(props) {
       </Navbar>
       <div className="widgets-container">
         {widgets.map((widget, index) => (
-          <Draggable key={index}>
+          <Draggable key={index} bounds={{left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight}}>
             <div className="widget">  
               {widget}
-                <button className="delete-button" onClick={() => {
-                  const newWidgets = [...widgets];
-                  newWidgets.splice(index, 1);
-                  setWidgets(newWidgets);
-                }}>
-                  <CloseIcon />
-                </button> 
+              <button className="delete-button" onClick={() => {
+                const newWidgets = [...widgets];
+                newWidgets.splice(index, 1);
+                setWidgets(newWidgets);
+              }}>
+                <CloseIcon />
+              </button> 
             </div>
           </Draggable>
         ))}

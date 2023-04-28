@@ -83,14 +83,14 @@ const TodoList = ({ todos, onCheck, onAdd,onDelete }) => {
   return (
     <Draggable handle={isDragging ? null : ".todo-list"} onStart={onStart} onStop={onStop} defaultPosition={{x: 0, y: 500}} bounds={bounds} >
       <div className={`todo-list ${isDragging ? "dragging" : ""}`}>
-        <h1>Todo List</h1>
+        <h1>To-Do List</h1>
         {todos.map((todo) => (
           <TodoItem key={todo.id} item={todo} onCheck={onCheck} onDelete={handleDelete} />
         ))}
         <div className="add-todo">
           <input
             style={{ border: "none",outline:"none", borderBottom: "2px solid black" }}
-            placeholder="Add new todo"
+            placeholder="Add new to-do"
             type="text"
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
@@ -104,9 +104,6 @@ const TodoList = ({ todos, onCheck, onAdd,onDelete }) => {
 
 export default function App() {
   const [todos, setTodos] = useState([
-    { id: 1, title: "Complete task A" },
-    { id: 2, title: "Read book B" },
-    { id: 3, title: "Finish project C" },
   ]);
 
   const handleCheck = (id) => {

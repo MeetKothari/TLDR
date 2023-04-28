@@ -5,24 +5,40 @@ import './weather.css';
 
 import { ReactComponent as SettingsIcon } from "../../components/settings.svg";
 
-const WeatherWidget = ({ id, handleDelete }) => {
+const WeatherWidget = () => {
   const [location, setLocation] = useState('Lowell');
-  const [city, setCity] = useState('');
+  const [latitude, setLatitude] = useState('42.645')
+  const [longitude, setLongitude] = useState('-72.307')
+  const [city, setCity] = useState('Lowell, MA');
   const [temperature, setTemperature] = useState('');
   const [conditions, setConditions] = useState('');
+  const [humidity, setHumidity] = useState('');
+  const [photoUrl, setConditionsPhotoUrl] = useState('');
   const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
-    const getWeatherData = async () => {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=56fa77af4a1c5b3e00bd7d5e224fd862&units=imperial`
+    const getLocationData = async () => {
+      const locationResponse = await axios.get(
+        `https://atlas.microsoft.com/search/address/json?&subscription-key=lYBWszWONgEcueSmKq0quEB1CbQTT6CU2Wpy6vEkaHk&api-version=1.0&language=en-US&query=${location}`
       );
-      setCity(response.data.name);
-      setTemperature(Math.round(response.data.main.temp));
-      setConditions(response.data.weather[0].description);
+      setLatitude(locationResponse.data.results[0].position.lat);
+      setLongitude(locationResponse.data.results[0].position.lon);
+      setCity(locationResponse.data.results[0].address.freeformAddress);
+    }
+
+    const getWeatherData = async () => {
+      const weatherResponse = await axios.get(
+        `https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=${latitude},${longitude}&unit=imperial&subscription-key=lYBWszWONgEcueSmKq0quEB1CbQTT6CU2Wpy6vEkaHk`
+      );
+      setCity(weatherResponse.data.name);
+      setTemperature(Math.round(weatherResponse.data.results[0].temperature.value));
+      setConditions(weatherResponse.data.results[0].phrase);
+      setHumidity(weatherResponse.data.results[0].relativeHumidity);
+      setConditionsPhotoUrl(`${process.env.PUBLIC_URL}/conditions/${weatherResponse.data.results[0].iconCode}.png`);
     };
 
     if (location !== '') {
+      getLocationData();
       getWeatherData();
     }
   }, [location]);
@@ -36,32 +52,8 @@ const WeatherWidget = ({ id, handleDelete }) => {
     setLocation(event.target.value);
   };
 
-  const handleDeleteWidget = () => {
-    handleDelete(id);
-  };
- // Calculate screen size and set bounds accordingly
- const [width, setWidth] = useState(window.innerWidth);
- const [height, setHeight] = useState(window.innerHeight);
-
- useEffect(() => {
-   const handleResize = () => {
-     setWidth(window.innerWidth);
-     setHeight(window.innerHeight);
-   };
-
-   window.addEventListener("resize", handleResize);
-
-   return () => window.removeEventListener("resize", handleResize);
- }, []);
-
- const bounds = {
-   top: height * 0.05,
-   left: 0,
-   right: width * 0.84,
-   bottom: height * 0.6,
- };
   return (
-    <Draggable bounds={bounds}>
+    <Draggable>
       <div className={`weather-widget ${isFlipped ? 'flipped' : ''}`}>
         <div className="widget-handle">
           <div className="widget-handle-bar"></div>
@@ -71,10 +63,13 @@ const WeatherWidget = ({ id, handleDelete }) => {
         <div className="widget-content">
           <div className="front">
             <h2 id='city'>{city}</h2>
+            <div className='conditionsImageCircle'>
+            <img id='conditionsImage' src={process.env.PUBLIC_URL + photoUrl} />
+            </div>
             <h2 id='temperature'>{temperature}&#176; F</h2>
             <p id='conditions'>{conditions}</p>
+            <p id='humidity'>Humidity: {humidity}%</p>
             <SettingsButton icon={<SettingsIcon/>} onClick={() => setIsFlipped(true)} />
-            <button className="del-button" onClick={handleDeleteWidget}>Delete</button>
           </div>
           <div className="back">
             <form onSubmit={handleSubmit}>

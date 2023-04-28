@@ -66,21 +66,46 @@
   transform: rotateY(0deg);
 }
 
+.conditionsImageCircle {
+  position: absolute;
+  margin-bottom: 60px;
+  width: 65px;
+  height: 65px;
+  background: #FFF;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;    
+  text-align:center;
+}
+
+#conditionsImage {
+  margin-top: 10px;
+}
+
 #city {
   position: absolute;
-  margin-bottom: 165px;
-  font-size: 38px;
+  max-width: 270px;
+  margin-bottom: 230px;
+  font-size: 28px;
 }
 
 #temperature {
   position: absolute;
   font-size: 32px;
+  margin-top: 100px;
 }
 
 #conditions { 
   position: absolute;
-  margin-top: 150px;
-  font-size: 28px;
+  margin-top: 180px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#humidity {
+  position: absolute;
+  margin-top: 245px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .weather-widget-button {
@@ -126,14 +151,3 @@
   width: 25px;
   height: 25px;
 }
-
-.del-button {
-  margin-top: 30px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  background-color: #007bff;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-}
-

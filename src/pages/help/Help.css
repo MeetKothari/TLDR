@@ -5,6 +5,7 @@
 }
 
 .menu {
+  transform: translate(0, 100px);
   width: 20%;
   padding-top: 2rem;
   padding-left: 2rem;
@@ -138,3 +139,6 @@ input[type="text"] {
   background-color: #0062cc;
 }
 
+.coffeehome {
+  transform: translate(-275px, 20px);
+}

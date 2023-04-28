@@ -1,6 +1,10 @@
 body {
   height: 100%;
   padding: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .App {
@@ -737,7 +741,7 @@ label {
   width: 30vw;
   height: 30vh;
   top: 125px;
-  left: 75%;
+  left: 65%;
   padding-left: 30px;
 
 }
@@ -1021,6 +1025,11 @@ input[type="password"] {
 
 
 /* WIDGET STUFF */
+
+.widgets-container {
+  height: 100vh;
+  width: 100vw;
+}
 
 .widget-draggable {
   position: absolute;

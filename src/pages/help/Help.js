@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import mySVG1 from "../../components/coffee.svg";
 import './Help.css';
 
 function Help() {
@@ -24,14 +25,13 @@ function Help() {
 
   return (
     <div className="help-container">
-      <div className="menu">
       <a href="/home">
-          <img src={mySVG1} style={{width: "4.5em"}} className="coffeehome" alt="Home" />
-        </a>
+        <img src={mySVG1} style={{width: "4.5em"}} className="coffeehome" alt="Home" />
+      </a>
+      <div className="menu">
         <ul>
           <li className="menu-item" onClick={handleMenuClick}>
             FAQ and Error Handling:
-            <i className="menu-item-icon">{menuOpen ? '-' : '+'}</i>
           </li>
           <ul className={`menu-sublist ${menuOpen ? 'open' : ''}`}>
             <li className="menu-subitem" onClick={() => setGettingStartedOpen(!gettingStartedOpen)}>
@@ -83,47 +83,45 @@ function Help() {
         </ul>
       </div>
       <div className="content">
-        <div className="Auth-container">
-          <div className="Auth-content">
-            <h1 className="Auth-title">Submit a ticket:</h1>
-            <h2 className="Auth-subtitle">Have a problem you don't see here? Send us an email!</h2>
-            <form className="Auth-form" onSubmit={handleSubmit}>
+        <div className="Auth-content">
+          <h1 className="Auth-title">Submit a ticket:</h1>
+          <h2 className="Auth-subtitle">Have a problem you don't see here? Send us an email!</h2>
+          <form className="Auth-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+              type="text"
+              className="form-control"
+              id="name"
+              placeholder="Enter your name"
+              required
+              />
+              </div>
               <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                type="text"
-                className="form-control"
-                id="name"
-                placeholder="Enter your name"
-                required
-                />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email address</label>
-                  <div className="email-field-wrapper">
-                    <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    placeholder="Enter email"
-                    required
-                    />
-                    </div>
-                    </div>
-                <div className="form-group">
-                  <label htmlFor="issue">Issue</label>
-                  <textarea
+                <label htmlFor="email">Email address</label>
+                <div className="email-field-wrapper">
+                  <input
+                  type="email"
                   className="form-control"
-                  id="issue"
-                  placeholder="Please describe your issue here"
+                  id="email"
+                  placeholder="Enter email"
                   required
-                  ></textarea>
+                  />
                   </div>
-                  <button type="submit" className="Auth-button">
-                    Submit
-                  </button>
-              </form>
-            </div>
+                  </div>
+              <div className="form-group">
+                <label htmlFor="issue">Issue</label>
+                <textarea
+                className="form-control"
+                id="issue"
+                placeholder="Please describe your issue here"
+                required
+                ></textarea>
+                </div>
+                <button type="submit" className="Auth-button">
+                  Submit
+                </button>
+            </form>
           </div>
         </div>
       </div>
