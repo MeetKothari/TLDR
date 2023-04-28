@@ -142,17 +142,6 @@ body {
   background-color: #f8f8f8;
 }
 
-/* .Auth-form-container{
-
-  padding: 40px;
-  border-radius: 8px;
-  min-width: 600px;
-  max-width: 800px;
-  position: relative;
-  overflow: hidden;
-
-} */
-
 .Auth-title {
   font-size: 36px;
   font-weight: 700;
@@ -471,16 +460,6 @@ input[type="password"] {
   margin-right: 60px;
 }
 
-
-
-
-
-/* .btn-primary {
-  background: linear-gradient(to right, #f44336, #ff9800);
-  border-color: transparent;
-  color: #fff;
-} */
-
 .Auth-button:hover {
   background-color: #0069d9;
   border-color: #0062cc;
@@ -683,10 +662,6 @@ label {
 }
 
 /* SETTINGS */
-
-/* .settings-content{
-  margin-right: 650px;
-} */
 
 .Suth-content-container {
   height: 100vh;
