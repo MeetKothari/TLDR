@@ -18,18 +18,12 @@ const WeatherWidget = () => {
 
   useEffect(() => {
     const getLocationData = async () => {
-      const locationResponse = await axios.get(
-        `https://atlas.microsoft.com/search/address/json?&subscription-key=lYBWszWONgEcueSmKq0quEB1CbQTT6CU2Wpy6vEkaHk&api-version=1.0&language=en-US&query=${location}`
-      );
       setLatitude(locationResponse.data.results[0].position.lat);
       setLongitude(locationResponse.data.results[0].position.lon);
       setCity(locationResponse.data.results[0].address.freeformAddress);
     }
 
     const getWeatherData = async () => {
-      const weatherResponse = await axios.get(
-        `https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=${latitude},${longitude}&unit=imperial&subscription-key=lYBWszWONgEcueSmKq0quEB1CbQTT6CU2Wpy6vEkaHk`
-      );
       setCity(weatherResponse.data.name);
       setTemperature(Math.round(weatherResponse.data.results[0].temperature.value));
       setConditions(weatherResponse.data.results[0].phrase);
