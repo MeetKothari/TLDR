@@ -15,8 +15,6 @@ const TrafficWidget = () => {
     event.preventDefault();
     setIsFlipped(false);
 
-    const url = `https://atlas.microsoft.com/search/address/json?subscription-key=lYBWszWONgEcueSmKq0quEB1CbQTT6CU2Wpy6vEkaHk&api-version=1.0&language=en-US&query=${searchQuery}`;
-
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -37,8 +35,8 @@ const TrafficWidget = () => {
       view: "Auto",
       language: "en-US",
       authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: 'lYBWszWONgEcueSmKq0quEB1CbQTT6CU2Wpy6vEkaHk'
+        authType: 
+        subscriptionKey: 
       }
     });
 
